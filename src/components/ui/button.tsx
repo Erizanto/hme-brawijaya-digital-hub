@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-elegant",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -18,12 +18,18 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // HME Custom Variants
+        hero: "bg-gradient-primary text-primary-foreground hover:shadow-accent transform hover:scale-105 transition-all duration-300 font-semibold",
+        accent: "bg-accent text-accent-foreground hover:bg-accent-light shadow-accent font-semibold",
+        "outline-accent": "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300",
+        gradient: "bg-gradient-hero text-primary-foreground hover:shadow-elegant transform hover:scale-105 transition-all duration-300 font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
+        hero: "h-12 px-8 py-3 text-base",
       },
     },
     defaultVariants: {
