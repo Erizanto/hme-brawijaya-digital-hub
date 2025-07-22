@@ -46,7 +46,7 @@ const Navigation = () => {
         { name: 'RisTIE', href: '/lso/ristie' },
       ]
     },
-    { name: 'TESLA Journal', href: '/tesla' },
+    { name: 'TESLA Recap', href: '/tesla' },
     { name: 'Berita & Acara', href: '/news' },
     { name: 'Portal Alumni', href: '/alumni' },
   ];
