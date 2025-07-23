@@ -29,26 +29,33 @@ const Navigation = () => {
       ]
     },
     { 
-      name: 'Departemen', 
-      href: '/departments',
+      name: 'Subunit Organisasi', 
+      href: '/subunit',
       dropdown: [
-        { name: 'Riset & Pengembangan', href: '/departments/research' },
-        { name: 'PSDM', href: '/departments/psdm' },
-        { name: 'Humas & Media', href: '/departments/humas' },
-        { name: 'Acara & Kegiatan', href: '/departments/events' },
-      ]
-    },
-    { 
-      name: 'LSO', 
-      href: '/lso',
-      dropdown: [
-        { name: 'Workshop HME', href: '/lso/workshop' },
-        { name: 'RisTIE', href: '/lso/ristie' },
+        { name: 'Workshop HME FT-UB', href: '/workshop' },
+        { name: 'RisTIE', href: '/ristie' },
+        { name: 'EME - Eksekutif Mahasiswa', href: '/eme' },
+        { name: 'BPME - Badan Perwakilan', href: '/bpme' },
       ]
     },
     { name: 'TESLA Recap', href: '/tesla' },
-    { name: 'Berita & Acara', href: '/news' },
-    { name: 'Portal Alumni', href: '/alumni' },
+    { 
+      name: 'Portal & Program', 
+      href: '/portal',
+      dropdown: [
+        { name: 'Portal Alumni', href: '/alumni' },
+        { name: 'Program Kerja & Kegiatan', href: '/programs' },
+      ]
+    },
+    { 
+      name: 'Media', 
+      href: '/media',
+      dropdown: [
+        { name: 'Galeri & Dokumentasi', href: '/gallery' },
+        { name: 'Berita & Acara', href: '/news' },
+      ]
+    },
+    { name: 'Kontak', href: '/contact' },
   ];
 
   const isActive = (href: string, exact = false) => {

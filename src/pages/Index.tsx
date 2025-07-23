@@ -14,7 +14,8 @@ import {
   ArrowRight,
   Zap,
   Target,
-  Lightbulb
+  Lightbulb,
+  Eye
 } from 'lucide-react';
 import heroImage from '@/assets/hero-hme.jpg';
 import labScene from '@/assets/lab-scene.jpg';
@@ -106,13 +107,31 @@ const Index = () => {
               Himpunan Mahasiswa
               <span className="block text-accent animate-float">Elektro</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 opacity-90 animate-slide-up [animation-delay:0.2s]">
+            <p className="text-xl md:text-2xl mb-6 opacity-90 animate-slide-up [animation-delay:0.2s]">
               Fakultas Teknik Universitas Brawijaya
             </p>
-            <p className="text-lg mb-12 opacity-80 max-w-2xl mx-auto animate-slide-up [animation-delay:0.4s]">
-              Organisasi mahasiswa yang aktif, inovatif, dan profesional dalam mengembangkan 
-              potensi di bidang teknik elektro dan teknologi
-            </p>
+            
+            {/* Vision & Mission Summary */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 animate-slide-up [animation-delay:0.3s]">
+              <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-4 border border-primary-foreground/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Target className="w-5 h-5 text-accent" />
+                  <h3 className="font-semibold text-accent">Visi</h3>
+                </div>
+                <p className="text-sm opacity-90">
+                  Menjadi himpunan mahasiswa elektro yang unggul, inovatif, dan berdaya saing tinggi
+                </p>
+              </div>
+              <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-4 border border-primary-foreground/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Eye className="w-5 h-5 text-accent" />
+                  <h3 className="font-semibold text-accent">Misi</h3>
+                </div>
+                <p className="text-sm opacity-90">
+                  Mengembangkan potensi mahasiswa melalui kegiatan akademik dan penelitian
+                </p>
+              </div>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:0.6s]">
               <Button variant="accent" size="hero" className="text-lg">
