@@ -51,30 +51,34 @@ const Index = () => {
     { icon: Award, label: "Achievements", value: "15+" }
   ];
 
-  const departments = [
+  const quickAccess = [
     {
-      name: "Riset & Pengembangan",
-      description: "Mengembangkan inovasi teknologi elektro terdepan",
-      icon: Lightbulb,
-      color: "from-blue-500 to-blue-600"
-    },
-    {
-      name: "PSDM",
-      description: "Pengembangan sumber daya mahasiswa elektro",
+      name: "Portal Alumni",
+      description: "Jaringan profesional dan mentoring mahasiswa elektro",
       icon: Users,
-      color: "from-purple-500 to-purple-600"
+      color: "from-blue-500 to-blue-600",
+      link: "/alumni"
     },
     {
-      name: "Humas & Media",
-      description: "Komunikasi dan publikasi kegiatan HME",
+      name: "TESLA Recap",
+      description: "Buletin dokumentasi tahunan kegiatan HME",
+      icon: BookOpen,
+      color: "from-purple-500 to-purple-600",
+      link: "/tesla"
+    },
+    {
+      name: "Workshop HME",
+      description: "LSO riset dan kompetisi teknologi",
+      icon: Zap,
+      color: "from-green-500 to-green-600",
+      link: "/workshop"
+    },
+    {
+      name: "RisTIE",
+      description: "Riset teknologi informasi elektro",
       icon: Target,
-      color: "from-green-500 to-green-600"
-    },
-    {
-      name: "Acara & Kegiatan",
-      description: "Penyelenggara berbagai event dan workshop",
-      icon: Calendar,
-      color: "from-orange-500 to-orange-600"
+      color: "from-orange-500 to-orange-600",
+      link: "/ristie"
     }
   ];
 
@@ -154,19 +158,40 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="py-16 bg-muted/50">
+      {/* Innovation Showcase */}
+      <section className="py-20 bg-gradient-to-b from-background via-muted/30 to-background">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {quickStats.map((stat, index) => (
-              <div key={stat.label} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-elegant">
-                  <stat.icon className="w-8 h-8 text-primary-foreground" />
-                </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-4">Inovasi & Prestasi</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Dedikasi kami dalam mengembangkan teknologi dan meraih prestasi
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-elegant">
+                <Lightbulb className="w-10 h-10 text-white" />
               </div>
-            ))}
+              <h3 className="text-2xl font-bold text-primary mb-2">Riset Terdepan</h3>
+              <p className="text-muted-foreground">Mengembangkan solusi teknologi elektro yang inovatif dan berkelanjutan</p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-elegant">
+                <Award className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-primary mb-2">Prestasi Nasional</h3>
+              <p className="text-muted-foreground">Meraih berbagai penghargaan dalam kompetisi teknologi tingkat nasional</p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-elegant">
+                <Users className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-primary mb-2">Jaringan Alumni</h3>
+              <p className="text-muted-foreground">Membangun koneksi profesional yang kuat di industri teknologi</p>
+            </div>
           </div>
         </div>
       </section>
@@ -182,22 +207,24 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {departments.map((dept, index) => (
-              <Card key={dept.name} className="group cursor-pointer hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-card">
-                <CardHeader className="text-center pb-2">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${dept.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <dept.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <CardTitle className="text-lg">{dept.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <CardDescription className="mb-4">{dept.description}</CardDescription>
-                  <Button variant="ghost" size="sm" className="group-hover:text-primary">
-                    Lihat Detail
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
+            {quickAccess.map((item, index) => (
+              <Link key={item.name} to={item.link}>
+                <Card className="group cursor-pointer hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-card">
+                  <CardHeader className="text-center pb-2">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <item.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg">{item.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <CardDescription className="mb-4">{item.description}</CardDescription>
+                    <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                      Akses Sekarang
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -262,30 +289,56 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-primary mb-6">
-            Bergabung dengan Komunitas HME
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Jadilah bagian dari organisasi mahasiswa terdepan di bidang teknik elektro. 
-            Kembangkan potensi dan raih prestasi bersama kami.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="gradient" size="hero">
-              Daftar LSO
-              <Zap className="w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="hero">
-              Submit Artikel TESLA
-              <BookOpen className="w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="hero">
-              Kirim Prestasi
-              <Award className="w-5 h-5" />
-            </Button>
+      {/* Portal Alumni Highlight */}
+      <section className="py-20 bg-gradient-to-r from-primary to-primary-accent">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-3xl p-8 border border-primary-foreground/20">
+              <h2 className="text-4xl font-bold text-primary-foreground mb-6">
+                Portal Alumni HME
+              </h2>
+              <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+                Terhubung dengan jaringan alumni elektro FT-UB yang tersebar di berbagai industri teknologi. 
+                Dapatkan mentoring, informasi karier, dan kesempatan kolaborasi.
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-primary-foreground mb-2">Jaringan Profesional</h3>
+                  <p className="text-sm text-primary-foreground/80">Terhubung dengan 500+ alumni</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Target className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-primary-foreground mb-2">Mentoring Program</h3>
+                  <p className="text-sm text-primary-foreground/80">Bimbingan karier personal</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Lightbulb className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-primary-foreground mb-2">Peluang Karier</h3>
+                  <p className="text-sm text-primary-foreground/80">Lowongan eksklusif dari alumni</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link to="/alumni">
+                  <Button variant="accent" size="hero">
+                    Akses Portal Alumni
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </Link>
+                <Button variant="outline-accent" size="hero" className="text-lg border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                  Daftar Sebagai Alumni
+                  <ExternalLink className="w-5 h-5" />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
