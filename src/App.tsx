@@ -10,6 +10,12 @@ import Alumni from "./pages/Alumni";
 import Workshop from "./pages/Workshop";
 import RisTIE from "./pages/RisTIE";
 import Partnership from "./pages/Partnership";
+import EME from "./pages/EME";
+import BPME from "./pages/BPME";
+import Programs from "./pages/Programs";
+import Gallery from "./pages/Gallery";
+import News from "./pages/News";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +34,12 @@ const App = () => (
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/ristie" element={<RisTIE />} />
           <Route path="/partnership" element={<Partnership />} />
+          <Route path="/eme" element={<EME />} />
+          <Route path="/bpme" element={<BPME />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
