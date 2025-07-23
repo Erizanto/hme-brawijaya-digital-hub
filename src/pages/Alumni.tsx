@@ -176,13 +176,13 @@ const Alumni = () => {
               magang, mentoring, dan kolaborasi untuk pengembangan karir dan inovasi
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="accent" size="hero">
+              <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
                 Daftar Alumni
-                <Users className="w-5 h-5" />
+                <Users className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
               </Button>
-              <Button variant="outline-accent" size="hero" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button variant="outline-accent" size="hero" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-110 transition-all duration-300">
                 Cari Mentor
-                <Heart className="w-5 h-5" />
+                <Heart className="w-5 h-5 hover:bounce transition-transform duration-300" />
               </Button>
             </div>
           </div>
@@ -258,14 +258,14 @@ const Alumni = () => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {jobOpportunities.map((job) => (
-                  <Card key={job.id} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300">
+                  <Card key={job.id} className="border-0 shadow-card hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group cursor-pointer">
                     <CardHeader>
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
-                          <CardDescription className="text-base font-medium">{job.company}</CardDescription>
+                          <CardTitle className="text-xl text-primary group-hover:scale-105 transition-transform duration-300">{job.title}</CardTitle>
+                          <CardDescription className="text-base font-medium group-hover:text-foreground transition-colors duration-300">{job.company}</CardDescription>
                         </div>
-                        <Badge variant="secondary" className="bg-accent/10 text-accent">
+                        <Badge variant="secondary" className="bg-accent/10 text-accent group-hover:scale-110 transition-transform duration-300">
                           {job.type}
                         </Badge>
                       </div>

@@ -157,16 +157,16 @@ const Tesla = () => {
               TESLA Recap Gardaraksa Anakarta hadir untuk merangkum seluruh kegiatan, pencapaian, 
               dan perkembangan HME FT-UB selama periode kepengurusan Gardaraksa Anakarta 2024/2025.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="accent" size="hero">
-                Baca Edisi Terbaru
-                <Eye className="w-5 h-5" />
-              </Button>
-              <Button variant="outline-accent" size="hero" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Lihat Arsip
-                <Download className="w-5 h-5" />
-              </Button>
-            </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
+                  Baca Edisi Terbaru
+                  <Eye className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
+                </Button>
+                <Button variant="outline-accent" size="hero" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-110 transition-all duration-300">
+                  Lihat Arsip
+                  <Download className="w-5 h-5 hover:bounce transition-transform duration-300" />
+                </Button>
+              </div>
           </div>
         </div>
       </section>
@@ -282,19 +282,19 @@ const Tesla = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {editions.map((edition, index) => (
-                  <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300">
+                  <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group cursor-pointer">
                     <CardHeader>
                       <div className="flex justify-between items-start mb-2">
-                        <CardTitle className="text-xl">{edition.edition}</CardTitle>
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">{edition.edition}</CardTitle>
                         <Badge 
                           variant={edition.status === 'Latest' ? 'default' : edition.status === 'Special' ? 'secondary' : 'outline'}
-                          className={
+                          className={`transition-all duration-300 group-hover:scale-110 ${
                             edition.status === 'Latest' 
-                              ? 'bg-accent text-accent-foreground' 
+                              ? 'bg-accent text-accent-foreground animate-pulse' 
                               : edition.status === 'Special'
                               ? 'bg-primary/10 text-primary'
                               : ''
-                          }
+                          }`}
                         >
                           {edition.status}
                         </Badge>

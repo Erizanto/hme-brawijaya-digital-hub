@@ -82,8 +82,8 @@ const Navigation = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
+        <Link to="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+          <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center hover:rotate-12 transition-transform duration-300 shadow-sm">
             <span className="text-primary-foreground font-bold text-lg">HME</span>
           </div>
           <div className="hidden md:block">
@@ -129,17 +129,14 @@ const Navigation = () => {
 
         {/* Actions */}
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon" className="hidden md:flex">
+          <Button variant="ghost" size="icon" className="hidden md:flex hover:scale-110 transition-all duration-300 hover:rotate-12">
             <Search className="h-5 w-5" />
-          </Button>
-          <Button variant="accent" size="sm" className="hidden md:flex">
-            Join HME
           </Button>
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden">
+              <Button variant="ghost" size="icon" className="lg:hidden hover:scale-110 transition-all duration-300 hover:rotate-180">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
@@ -147,14 +144,16 @@ const Navigation = () => {
               <div className="flex flex-col space-y-4 mt-8">
                 {navItems.map((item) => (
                   <div key={item.name}>
-                    <NavLink item={item} />
+                    <div className="hover:scale-105 transition-transform duration-200">
+                      <NavLink item={item} />
+                    </div>
                     {item.dropdown && (
                       <div className="ml-4 mt-2 space-y-2">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-2 hover:bg-accent/20 rounded-lg"
                             onClick={() => setIsOpen(false)}
                           >
                             {subItem.name}
@@ -164,11 +163,6 @@ const Navigation = () => {
                     )}
                   </div>
                 ))}
-                <div className="pt-4 border-t">
-                  <Button variant="accent" className="w-full">
-                    Join HME
-                  </Button>
-                </div>
               </div>
             </SheetContent>
           </Sheet>

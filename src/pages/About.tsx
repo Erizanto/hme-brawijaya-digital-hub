@@ -82,16 +82,16 @@ const About = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {visionMission.map((item, index) => (
-              <Card key={item.title} className="relative overflow-hidden border-0 shadow-card hover:shadow-elegant transition-all duration-300">
-                <div className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${item.color}`}></div>
+              <Card key={item.title} className="relative overflow-hidden border-0 shadow-card hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group">
+                <div className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${item.color} group-hover:h-3 transition-all duration-300`}></div>
                 <CardHeader className="text-center pt-8">
-                  <div className={`w-20 h-20 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <div className={`w-20 h-20 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`}>
                     <item.icon className="w-10 h-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl">{item.title}</CardTitle>
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg text-muted-foreground text-center leading-relaxed">
+                  <p className="text-lg text-muted-foreground text-center leading-relaxed group-hover:text-foreground transition-colors duration-300">
                     {item.content}
                   </p>
                 </CardContent>
@@ -111,15 +111,15 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <Card key={value.title} className="text-center hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-card">
+              <Card key={value.title} className="text-center hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 shadow-card group cursor-pointer">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-8 h-8 text-primary-foreground" />
+                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 group-hover:shadow-glow">
+                    <value.icon className="w-8 h-8 text-primary-foreground group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <CardTitle className="text-xl">{value.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">{value.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{value.description}</p>
+                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -164,9 +164,9 @@ const About = () => {
                   </p>
                 </div>
                 
-                <Button variant="gradient" size="lg" className="mt-6">
+                <Button variant="gradient" size="lg" className="mt-6 hover:scale-110 transition-all duration-300 hover:shadow-glow">
                   Pelajari Lebih Lanjut
-                  <BookOpen className="w-5 h-5" />
+                  <BookOpen className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
                 </Button>
               </div>
             </div>

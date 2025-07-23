@@ -138,9 +138,9 @@ const Index = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:0.6s]">
-              <Button variant="accent" size="hero" className="text-lg">
-                Bergabung dengan HME
-                <ArrowRight className="w-5 h-5" />
+              <Button variant="accent" size="hero" className="text-lg hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
+                Jelajahi HME
+                <ArrowRight className="w-5 h-5 hover:translate-x-2 transition-transform duration-300" />
               </Button>
               <Button variant="outline-accent" size="hero" className="text-lg border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                 Tentang Kami
@@ -169,28 +169,28 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-elegant">
-                <Lightbulb className="w-10 h-10 text-white" />
+            <div className="text-center group cursor-pointer">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-elegant group-hover:shadow-glow">
+                <Lightbulb className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-2">Riset Terdepan</h3>
-              <p className="text-muted-foreground">Mengembangkan solusi teknologi elektro yang inovatif dan berkelanjutan</p>
+              <h3 className="text-2xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">Riset Terdepan</h3>
+              <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Mengembangkan solusi teknologi elektro yang inovatif dan berkelanjutan</p>
             </div>
             
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-elegant">
-                <Award className="w-10 h-10 text-white" />
+            <div className="text-center group cursor-pointer">
+              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-elegant group-hover:shadow-glow">
+                <Award className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-2">Prestasi Nasional</h3>
-              <p className="text-muted-foreground">Meraih berbagai penghargaan dalam kompetisi teknologi tingkat nasional</p>
+              <h3 className="text-2xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">Prestasi Nasional</h3>
+              <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Meraih berbagai penghargaan dalam kompetisi teknologi tingkat nasional</p>
             </div>
             
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-elegant">
-                <Users className="w-10 h-10 text-white" />
+            <div className="text-center group cursor-pointer">
+              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-elegant group-hover:shadow-glow">
+                <Users className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-2">Jaringan Alumni</h3>
-              <p className="text-muted-foreground">Membangun koneksi profesional yang kuat di industri teknologi</p>
+              <h3 className="text-2xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">Jaringan Alumni</h3>
+              <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Membangun koneksi profesional yang kuat di industri teknologi</p>
             </div>
           </div>
         </div>
@@ -209,18 +209,18 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickAccess.map((item, index) => (
               <Link key={item.name} to={item.link}>
-                <Card className="group cursor-pointer hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-card">
+                <Card className="group cursor-pointer hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 shadow-card">
                   <CardHeader className="text-center pb-2">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <item.icon className="w-8 h-8 text-white" />
+                    <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 group-hover:shadow-glow`}>
+                      <item.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <CardTitle className="text-lg">{item.name}</CardTitle>
+                    <CardTitle className="text-lg group-hover:text-primary group-hover:scale-105 transition-all duration-300">{item.name}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
-                    <CardDescription className="mb-4">{item.description}</CardDescription>
-                    <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                    <CardDescription className="mb-4 group-hover:text-foreground transition-colors duration-300">{item.description}</CardDescription>
+                    <Button variant="ghost" size="sm" className="group-hover:text-primary group-hover:bg-accent/20 transition-all duration-300">
                       Akses Sekarang
-                      <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                     </Button>
                   </CardContent>
                 </Card>
@@ -328,10 +328,10 @@ const Index = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link to="/alumni">
-                  <Button variant="accent" size="hero">
-                    Akses Portal Alumni
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
+                    <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
+                      Akses Portal Alumni
+                      <ArrowRight className="w-5 h-5 hover:translate-x-2 transition-transform duration-300" />
+                    </Button>
                 </Link>
                 <Button variant="outline-accent" size="hero" className="text-lg border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   Daftar Sebagai Alumni

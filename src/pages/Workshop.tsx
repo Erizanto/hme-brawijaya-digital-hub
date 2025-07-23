@@ -172,12 +172,12 @@ const Workshop = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {departments.map((dept, index) => (
-              <Card key={dept.name} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2">
+              <Card key={dept.name} className="border-0 shadow-card hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group cursor-pointer">
                 <CardHeader className="text-center">
-                  <div className={`w-20 h-20 bg-gradient-to-r ${dept.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <dept.icon className="w-10 h-10 text-white" />
+                  <div className={`w-20 h-20 bg-gradient-to-r ${dept.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 group-hover:shadow-glow`}>
+                    <dept.icon className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <CardTitle className="text-xl text-primary">{dept.name}</CardTitle>
+                  <CardTitle className="text-xl text-primary group-hover:scale-105 transition-transform duration-300">{dept.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <CardDescription className="text-center text-base leading-relaxed">
@@ -207,9 +207,9 @@ const Workshop = () => {
                     </div>
                   </div>
 
-                  <Button variant="outline" className="w-full mt-4">
+                  <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 hover:scale-105">
                     Pelajari Lebih Lanjut
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
                   </Button>
                 </CardContent>
               </Card>
