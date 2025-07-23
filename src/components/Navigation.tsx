@@ -26,6 +26,9 @@ const Navigation = () => {
         { name: 'Visi & Misi', href: '/about#vision' },
         { name: 'Struktur Organisasi', href: '/about#structure' },
         { name: 'Sejarah', href: '/about#history' },
+        { name: 'Galeri & Dokumentasi', href: '/gallery' },
+        { name: 'Berita & Acara', href: '/news' },
+        { name: 'Kontak', href: '/contact' },
       ]
     },
     { 
@@ -47,15 +50,7 @@ const Navigation = () => {
         { name: 'Program Kerja & Kegiatan', href: '/programs' },
       ]
     },
-    { 
-      name: 'Media', 
-      href: '/media',
-      dropdown: [
-        { name: 'Galeri & Dokumentasi', href: '/gallery' },
-        { name: 'Berita & Acara', href: '/news' },
-      ]
-    },
-    { name: 'Kontak', href: '/contact' },
+    { name: 'Partnership', href: '/partnership' },
   ];
 
   const isActive = (href: string, exact = false) => {

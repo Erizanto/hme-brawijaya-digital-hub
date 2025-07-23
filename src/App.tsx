@@ -9,6 +9,7 @@ import Tesla from "./pages/Tesla";
 import Alumni from "./pages/Alumni";
 import Workshop from "./pages/Workshop";
 import RisTIE from "./pages/RisTIE";
+import Partnership from "./pages/Partnership";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/alumni" element={<Alumni />} />
           <Route path="/workshop" element={<Workshop />} />
           <Route path="/ristie" element={<RisTIE />} />
+          <Route path="/partnership" element={<Partnership />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

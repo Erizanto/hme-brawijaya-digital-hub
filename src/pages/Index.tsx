@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import IPKCalculator from '@/components/IPKCalculator';
 import { 
   Users, 
   BookOpen, 
@@ -15,7 +16,8 @@ import {
   Zap,
   Target,
   Lightbulb,
-  Eye
+  Eye,
+  Calculator
 } from 'lucide-react';
 import heroImage from '@/assets/hero-hme.jpg';
 import labScene from '@/assets/lab-scene.jpg';
@@ -340,6 +342,21 @@ const Index = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* IPK Calculator Section */}
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4 animate-pulse">
+              <Calculator className="w-8 h-8 text-primary-foreground" />
+            </div>
+            <h2 className="text-4xl font-bold text-primary mb-4">Kalkulator IPK</h2>
+            <p className="text-xl text-muted-foreground">Hitung dan pantau prestasi akademik Anda dengan mudah</p>
+          </div>
+          
+          <IPKCalculator />
         </div>
       </section>
 
