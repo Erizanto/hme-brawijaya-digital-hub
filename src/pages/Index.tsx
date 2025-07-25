@@ -140,9 +140,9 @@ const Index = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:0.6s]">
-              <Button variant="accent" size="hero" className="text-lg hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
+              <Button variant="accent" size="hero" className="text-lg hover:scale-105 transition-all duration-300">
                 Jelajahi HME
-                <ArrowRight className="w-5 h-5 hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 hover:translate-x-1 transition-transform duration-300" />
               </Button>
               <Button variant="outline-accent" size="hero" className="text-lg border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                 Tentang Kami
@@ -155,48 +155,11 @@ const Index = () => {
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-primary-foreground rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-primary-foreground rounded-full mt-2 animate-pulse"></div>
+            <div className="w-1 h-3 bg-primary-foreground rounded-full mt-2"></div>
           </div>
         </div>
       </section>
 
-      {/* Innovation Showcase */}
-      <section className="py-20 bg-gradient-to-b from-background via-muted/30 to-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Inovasi & Prestasi</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Dedikasi kami dalam mengembangkan teknologi dan meraih prestasi
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center group cursor-pointer">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-elegant group-hover:shadow-glow">
-                <Lightbulb className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">Riset Terdepan</h3>
-              <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Mengembangkan solusi teknologi elektro yang inovatif dan berkelanjutan</p>
-            </div>
-            
-            <div className="text-center group cursor-pointer">
-              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-elegant group-hover:shadow-glow">
-                <Award className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">Prestasi Nasional</h3>
-              <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Meraih berbagai penghargaan dalam kompetisi teknologi tingkat nasional</p>
-            </div>
-            
-            <div className="text-center group cursor-pointer">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-elegant group-hover:shadow-glow">
-                <Users className="w-10 h-10 text-white group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-2 group-hover:scale-105 transition-transform duration-300">Jaringan Alumni</h3>
-              <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Membangun koneksi profesional yang kuat di industri teknologi</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Quick Access */}
       <section className="py-20 bg-background">
@@ -211,12 +174,12 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickAccess.map((item, index) => (
               <Link key={item.name} to={item.link}>
-                <Card className="group cursor-pointer hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 shadow-card">
+                <Card className="group cursor-pointer hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2 hover:scale-102 border-0 shadow-card">
                   <CardHeader className="text-center pb-2">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 group-hover:shadow-glow`}>
-                      <item.icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                    <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300`}>
+                      <item.icon className="w-8 h-8 text-white group-hover:scale-105 transition-transform duration-300" />
                     </div>
-                    <CardTitle className="text-lg group-hover:text-primary group-hover:scale-105 transition-all duration-300">{item.name}</CardTitle>
+                    <CardTitle className="text-lg group-hover:text-primary transition-all duration-300">{item.name}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
                     <CardDescription className="mb-4 group-hover:text-foreground transition-colors duration-300">{item.description}</CardDescription>
@@ -330,9 +293,9 @@ const Index = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link to="/alumni">
-                    <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
+                    <Button variant="accent" size="hero" className="hover:scale-105 transition-all duration-300">
                       Akses Portal Alumni
-                      <ArrowRight className="w-5 h-5 hover:translate-x-2 transition-transform duration-300" />
+                      <ArrowRight className="w-5 h-5 hover:translate-x-1 transition-transform duration-300" />
                     </Button>
                 </Link>
                 <Button variant="outline-accent" size="hero" className="text-lg border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
@@ -349,7 +312,7 @@ const Index = () => {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4 animate-pulse">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4">
               <Calculator className="w-8 h-8 text-primary-foreground" />
             </div>
             <h2 className="text-4xl font-bold text-primary mb-4">Kalkulator IPK</h2>
