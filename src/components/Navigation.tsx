@@ -18,7 +18,6 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Beranda', href: '/', exact: true },
     { 
       name: 'Tentang HME', 
       href: '/about',

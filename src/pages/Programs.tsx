@@ -202,7 +202,7 @@ const Programs = () => {
       <section className="relative py-20 bg-gradient-primary text-primary-foreground overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-accent rounded-full mb-6 animate-pulse">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-accent rounded-full mb-6">
               <Calendar className="w-10 h-10 text-accent-foreground" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
@@ -247,7 +247,7 @@ const Programs = () => {
             {programs.map((category, categoryIndex) => (
               <div key={category.category} className="space-y-6">
                 <div className="flex items-center mb-8">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-full flex items-center justify-center mr-4 animate-pulse`}>
+                  <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-full flex items-center justify-center mr-4`}>
                     <category.icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-primary">{category.category}</h3>

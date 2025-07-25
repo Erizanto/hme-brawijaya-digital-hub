@@ -82,7 +82,7 @@ const BPME = () => {
       <section className="relative py-20 bg-gradient-primary text-primary-foreground overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-accent rounded-full mb-6 animate-pulse">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-accent rounded-full mb-6">
               <Scale className="w-10 h-10 text-accent-foreground" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
