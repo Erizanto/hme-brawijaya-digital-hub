@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,12 +10,21 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Search, Users, BookOpen, Calendar, Award } from 'lucide-react';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Menu, Search, X, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
 
   const navItems = [
@@ -87,45 +97,74 @@ const Navigation = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList>
-            {navItems.map((item) => (
-              <NavigationMenuItem key={item.name}>
-                {item.dropdown ? (
-                  <>
-                    <NavigationMenuTrigger className="h-auto p-2 font-medium text-foreground hover:text-primary">
+        <nav className="hidden lg:flex items-center space-x-2">
+          {navItems.map((item) => (
+            <div key={item.name} className="relative">
+              {item.dropdown ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="font-medium text-foreground hover:text-primary">
                       {item.name}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className="grid w-[400px] gap-3 p-4">
-                        {item.dropdown.map((subItem) => (
-                          <NavigationMenuLink key={subItem.name} asChild>
-                            <Link
-                              to={subItem.href}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            >
-                              <div className="text-sm font-medium leading-none">{subItem.name}</div>
-                            </Link>
-                          </NavigationMenuLink>
-                        ))}
-                      </div>
-                    </NavigationMenuContent>
-                  </>
-                ) : (
-                  <NavigationMenuLink asChild>
-                    <NavLink item={item} />
-                  </NavigationMenuLink>
-                )}
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-56 bg-background/95 backdrop-blur border">
+                    {item.dropdown.map((subItem) => (
+                      <DropdownMenuItem key={subItem.name} asChild>
+                        <Link
+                          to={subItem.href}
+                          className="w-full cursor-pointer"
+                        >
+                          {subItem.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <NavLink item={item} />
+              )}
+            </div>
+          ))}
+        </nav>
 
         {/* Actions */}
         <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon" className="hidden md:flex hover:scale-110 transition-all duration-300 hover:rotate-12">
-            <Search className="h-5 w-5" />
-          </Button>
+          {/* Search */}
+          <div className="relative hidden md:flex">
+            {searchOpen ? (
+              <div className="flex items-center space-x-2">
+                <Input
+                  type="text"
+                  placeholder="Cari..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-64"
+                  autoFocus
+                />
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  onClick={() => {
+                    setSearchOpen(false);
+                    setSearchQuery('');
+                  }}
+                  className="hover:scale-110 transition-all duration-300"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            ) : (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setSearchOpen(true)}
+                className="hover:scale-110 transition-all duration-300"
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+            )}
+          </div>
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -135,29 +174,55 @@ const Navigation = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col space-y-4 mt-8">
-                {navItems.map((item) => (
-                  <div key={item.name}>
-                    <div className="hover:scale-105 transition-transform duration-200">
-                      <NavLink item={item} />
-                    </div>
-                    {item.dropdown && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.dropdown.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            to={subItem.href}
-                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-2 hover:bg-accent/20 rounded-lg"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+              <ScrollArea className="h-full">
+                <div className="flex flex-col space-y-3 mt-8 pb-8">
+                  {/* Mobile Search */}
+                  <div className="px-2 mb-4">
+                    <Input
+                      type="text"
+                      placeholder="Cari..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full"
+                    />
                   </div>
-                ))}
-              </div>
+
+                  {navItems.map((item) => (
+                    <div key={item.name} className="space-y-2">
+                      {item.dropdown ? (
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button 
+                              variant="ghost" 
+                              className="w-full justify-between font-medium text-foreground hover:text-primary"
+                            >
+                              {item.name}
+                              <ChevronDown className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="start" className="w-56 bg-background/95 backdrop-blur border">
+                            {item.dropdown.map((subItem) => (
+                              <DropdownMenuItem key={subItem.name} asChild>
+                                <Link
+                                  to={subItem.href}
+                                  className="w-full cursor-pointer"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      ) : (
+                        <div onClick={() => setIsOpen(false)}>
+                          <NavLink item={item} className="w-full" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
             </SheetContent>
           </Sheet>
         </div>
