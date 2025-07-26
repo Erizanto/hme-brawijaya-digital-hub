@@ -32,16 +32,16 @@ const Navigation = () => {
       name: 'Tentang HME', 
       href: '/about',
       dropdown: [
-        { name: 'Visi & Misi', href: '/about#vision' },
-        { name: 'Struktur Organisasi', href: '/about#structure' },
-        { name: 'Sejarah', href: '/about#history' },
+        { name: 'Visi & Misi', href: '/about', hash: 'vision' },
+        { name: 'Struktur Organisasi', href: '/about', hash: 'structure' },
+        { name: 'Sejarah', href: '/about', hash: 'history' },
         { name: 'Galeri & Dokumentasi', href: '/gallery' },
         { name: 'Berita & Acara', href: '/news' },
         { name: 'Kontak', href: '/contact' },
       ]
     },
     { 
-      name: 'Subunit Organisasi', 
+      name: 'Alat Kelengkapan', 
       href: '/subunit',
       dropdown: [
         { name: 'Workshop HME FT-UB', href: '/workshop' },
@@ -114,6 +114,13 @@ const Navigation = () => {
                         <Link
                           to={subItem.href}
                           className="w-full cursor-pointer"
+                          onClick={(e) => {
+                            if (subItem.hash) {
+                              setTimeout(() => {
+                                document.getElementById(subItem.hash)?.scrollIntoView({ behavior: 'smooth' });
+                              }, 100);
+                            }
+                          }}
                         >
                           {subItem.name}
                         </Link>
@@ -206,7 +213,14 @@ const Navigation = () => {
                                 <Link
                                   to={subItem.href}
                                   className="w-full cursor-pointer"
-                                  onClick={() => setIsOpen(false)}
+                                  onClick={(e) => {
+                                    setIsOpen(false);
+                                    if (subItem.hash) {
+                                      setTimeout(() => {
+                                        document.getElementById(subItem.hash)?.scrollIntoView({ behavior: 'smooth' });
+                                      }, 100);
+                                    }
+                                  }}
                                 >
                                   {subItem.name}
                                 </Link>

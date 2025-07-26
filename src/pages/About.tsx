@@ -45,12 +45,12 @@ const About = () => {
   ];
 
   const orgStructure = [
-    { position: "Ketua Umum", name: "Ahmad Rizki Pratama", period: "2024-2025" },
-    { position: "Wakil Ketua", name: "Sari Indira Putri", period: "2024-2025" },
-    { position: "Sekretaris Umum", name: "Budi Santoso", period: "2024-2025" },
-    { position: "Bendahara Umum", name: "Diana Kusumawati", period: "2024-2025" },
-    { position: "Kepala Dept. Riset", name: "Farhan Maulana", period: "2024-2025" },
-    { position: "Kepala Dept. PSDM", name: "Lisa Anggraini", period: "2024-2025" }
+    { position: "Ketua HME", name: "Iqbal", period: "2025-2026" },
+    { position: "Wakil Ketua HME", name: "Evan", period: "2025-2026" },
+    { position: "Sekretaris HME", name: "Aurel", period: "2025-2026" },
+    { position: "Bendahara", name: "Devina", period: "2025-2026" },
+    { position: "Ketua Umum Workshop", name: "Mulki", period: "2025-2026" },
+    { position: "Ketua Umum RisTIE", name: "Aza", period: "2025-2026" }
   ];
 
   return (
@@ -179,7 +179,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Struktur Organisasi</h2>
-            <p className="text-xl opacity-90">Kepengurusan HME FT-UB Periode 2024-2025</p>
+            <p className="text-xl opacity-90">Kabinet Sangkara Anantara Periode 2025-2026</p>
           </div>
           
           <div className="max-w-4xl mx-auto">
