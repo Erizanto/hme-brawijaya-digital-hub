@@ -104,7 +104,7 @@ const IPKCalculator = () => {
     <Card className="w-full max-w-4xl mx-auto hover:shadow-elegant transition-all duration-500 border-0 shadow-card">
       <CardHeader className="text-center bg-gradient-primary text-primary-foreground rounded-t-lg">
         <div className="flex items-center justify-center mb-4">
-          <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center animate-pulse">
+          <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
             <Calculator className="w-8 h-8 text-accent-foreground" />
           </div>
         </div>
@@ -145,12 +145,12 @@ const IPKCalculator = () => {
                     IPS: {calculateIPS(semester.courses).toFixed(2)}
                   </span>
                 </h3>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <Button 
                     variant="outline" 
                     size="sm" 
                     onClick={() => addCourse(semester.id)}
-                    className="hover:scale-110 transition-all duration-300"
+                    className="hover:scale-110 transition-all duration-300 whitespace-nowrap"
                   >
                     <Plus className="w-4 h-4 mr-1" />
                     Tambah Matkul
@@ -170,8 +170,8 @@ const IPKCalculator = () => {
 
               <div className="space-y-3">
                 {semester.courses.map((course) => (
-                  <div key={course.id} className="grid grid-cols-1 md:grid-cols-12 gap-3 items-end bg-muted/30 p-3 rounded-lg hover:bg-muted/50 transition-all duration-300">
-                    <div className="md:col-span-5">
+                  <div key={course.id} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-end bg-muted/30 p-3 rounded-lg hover:bg-muted/50 transition-all duration-300">
+                    <div className="sm:col-span-2 lg:col-span-5">
                       <Label htmlFor={`course-name-${course.id}`}>Nama Mata Kuliah</Label>
                       <Input
                         id={`course-name-${course.id}`}
@@ -181,7 +181,7 @@ const IPKCalculator = () => {
                         className="hover:scale-105 transition-transform duration-200"
                       />
                     </div>
-                    <div className="md:col-span-2">
+                    <div className="lg:col-span-2">
                       <Label htmlFor={`course-credits-${course.id}`}>SKS</Label>
                       <Input
                         id={`course-credits-${course.id}`}
@@ -193,7 +193,7 @@ const IPKCalculator = () => {
                         className="hover:scale-105 transition-transform duration-200"
                       />
                     </div>
-                    <div className="md:col-span-3">
+                    <div className="lg:col-span-3">
                       <Label htmlFor={`course-grade-${course.id}`}>Nilai</Label>
                       <Select 
                         value={course.grade} 
@@ -211,7 +211,7 @@ const IPKCalculator = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                    <div className="md:col-span-2">
+                    <div className="lg:col-span-2">
                       <Button 
                         variant="destructive" 
                         size="sm" 

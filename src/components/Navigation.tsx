@@ -25,6 +25,31 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      // Simple search functionality - you can enhance this later
+      const searchResults = navItems.flatMap(item => {
+        const matches = [];
+        if (item.name.toLowerCase().includes(query.toLowerCase())) {
+          matches.push(item);
+        }
+        if (item.dropdown) {
+          item.dropdown.forEach(subItem => {
+            if (subItem.name.toLowerCase().includes(query.toLowerCase())) {
+              matches.push(subItem);
+            }
+          });
+        }
+        return matches;
+      });
+      
+      if (searchResults.length > 0) {
+        // Navigate to first result
+        window.location.href = searchResults[0].href;
+      }
+    }
+  };
   const location = useLocation();
 
   const navItems = [
@@ -138,27 +163,37 @@ const Navigation = () => {
         {/* Actions */}
         <div className="flex items-center space-x-2">
           {/* Search */}
-          <div className="relative hidden md:flex">
+          <div className="relative hidden lg:flex">
             {searchOpen ? (
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 absolute right-0 top-0 bg-background border rounded-lg shadow-lg p-2 min-w-[280px] z-50">
                 <Input
                   type="text"
                   placeholder="Cari..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-64"
+                  className="w-full"
                   autoFocus
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleSearch(searchQuery);
+                      setSearchOpen(false);
+                      setSearchQuery('');
+                    }
+                  }}
                 />
                 <Button 
                   variant="ghost" 
                   size="icon"
                   onClick={() => {
+                    if (searchQuery.trim()) {
+                      handleSearch(searchQuery);
+                    }
                     setSearchOpen(false);
                     setSearchQuery('');
                   }}
-                  className="hover:scale-110 transition-all duration-300"
+                  className="hover:scale-110 transition-all duration-300 shrink-0"
                 >
-                  <X className="h-4 w-4" />
+                  {searchQuery.trim() ? <Search className="h-4 w-4" /> : <X className="h-4 w-4" />}
                 </Button>
               </div>
             ) : (
@@ -185,13 +220,36 @@ const Navigation = () => {
                 <div className="flex flex-col space-y-3 mt-8 pb-8">
                   {/* Mobile Search */}
                   <div className="px-2 mb-4">
-                    <Input
-                      type="text"
-                      placeholder="Cari..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full"
-                    />
+                    <div className="flex items-center space-x-2">
+                      <Input
+                        type="text"
+                        placeholder="Cari..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            handleSearch(searchQuery);
+                            setIsOpen(false);
+                            setSearchQuery('');
+                          }
+                        }}
+                      />
+                      <Button 
+                        variant="ghost" 
+                        size="icon"
+                        onClick={() => {
+                          if (searchQuery.trim()) {
+                            handleSearch(searchQuery);
+                            setIsOpen(false);
+                          }
+                          setSearchQuery('');
+                        }}
+                        className="shrink-0"
+                      >
+                        <Search className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
 
                   {navItems.map((item) => (

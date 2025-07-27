@@ -140,14 +140,18 @@ const Index = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:0.6s]">
-              <Button variant="accent" size="hero" className="text-lg hover:scale-105 transition-all duration-300">
-                Jelajahi HME
-                <ArrowRight className="w-5 h-5 hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-              <Button variant="outline-accent" size="hero" className="text-lg border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Tentang Kami
-                <ExternalLink className="w-5 h-5" />
-              </Button>
+              <Link to="/about">
+                <Button variant="accent" size="hero" className="text-lg hover:scale-105 transition-all duration-300">
+                  Jelajahi HME
+                  <ArrowRight className="w-5 h-5 hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+              </Link>
+              <Link to="/about">
+                <Button variant="outline-accent" size="hero" className="text-lg border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                  Tentang Kami
+                  <ExternalLink className="w-5 h-5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
