@@ -96,46 +96,27 @@ const Alumni = () => {
     }
   ];
 
-  const mentors = [
-    {
-      name: "Dr. Ir. Ahmad Rizki, M.T.",
-      graduation: "2010",
-      position: "Senior Manager at Schlumberger",
-      expertise: ["Instrumentation", "Oil & Gas", "Leadership"],
-      experience: "14 tahun",
-      mentees: 25,
-      rating: 4.9
-    },
-    {
-      name: "Siti Nurhaliza, S.T., M.Eng",
-      graduation: "2015", 
-      position: "Lead Engineer at Tesla",
-      expertise: ["Electric Vehicles", "Battery Systems", "R&D"],
-      experience: "9 tahun",
-      mentees: 18,
-      rating: 4.8
-    },
-    {
-      name: "Budi Santoso, S.T., Ph.D",
-      graduation: "2008",
-      position: "Startup Founder & CTO",
-      expertise: ["IoT", "Entrepreneurship", "Product Development"],
-      experience: "16 tahun", 
-      mentees: 32,
-      rating: 4.9
-    }
-  ];
 
   const collaborationProjects = [
     {
       title: "Smart Grid Monitoring System",
-      initiator: "Prof. Dr. Hadi Suyono",
+      initiator: "Prof. Dr. Hadi Suyono (Dosen)",
       type: "Research Project",
       duration: "8 bulan",
       team: "4-6 orang",
       skills: ["IoT", "Data Analytics", "Power Systems"],
       status: "Open",
       deadline: "28 Feb 2025"
+    },
+    {
+      title: "Renewable Energy Integration Platform",
+      initiator: "Dr. Eng. Siti Rahma (Dosen)",
+      type: "Research Project",
+      duration: "10 bulan",
+      team: "5-7 orang",
+      skills: ["Power Electronics", "Control Systems", "Web Development"],
+      status: "Open",
+      deadline: "15 Mar 2025"
     },
     {
       title: "EV Charging Station App",
@@ -229,10 +210,9 @@ const Alumni = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-7xl mx-auto">
-            <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 mb-12 h-auto p-1">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12 h-auto p-1">
               <TabsTrigger value="opportunities" className="text-center py-3">Lowongan Kerja</TabsTrigger>
               <TabsTrigger value="internships" className="text-center py-3">Info Magang</TabsTrigger>
-              <TabsTrigger value="mentoring" className="text-center py-3">Mentoring</TabsTrigger>
               <TabsTrigger value="collaboration" className="text-center py-3">Kolaborasi Project</TabsTrigger>
             </TabsList>
 
@@ -394,83 +374,6 @@ const Alumni = () => {
                     </CardContent>
                   </Card>
                 ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="mentoring" className="space-y-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-primary mb-4">Program Mentoring Alumni</h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Dapatkan bimbingan langsung dari alumni berpengalaman untuk pengembangan 
-                  karir, akademik, dan personal development
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {mentors.map((mentor, index) => (
-                  <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300">
-                    <CardHeader className="text-center">
-                      <div className="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Users className="w-10 h-10 text-primary-foreground" />
-                      </div>
-                      <CardTitle className="text-xl">{mentor.name}</CardTitle>
-                      <CardDescription className="font-medium">{mentor.position}</CardDescription>
-                      <div className="flex items-center justify-center gap-1 mt-2">
-                        <Star className="w-4 h-4 fill-accent text-accent" />
-                        <span className="text-sm font-medium">{mentor.rating}</span>
-                        <span className="text-xs text-muted-foreground">({mentor.mentees} mentees)</span>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="text-center">
-                        <div className="text-sm text-muted-foreground mb-1">Lulusan {mentor.graduation}</div>
-                        <div className="text-sm text-muted-foreground">{mentor.experience} pengalaman</div>
-                      </div>
-
-                      <div>
-                        <div className="text-sm font-medium mb-2">Keahlian:</div>
-                        <div className="flex flex-wrap gap-1">
-                          {mentor.expertise.map((skill, skillIndex) => (
-                            <Badge key={skillIndex} variant="secondary" className="text-xs bg-primary/10 text-primary">
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="flex gap-2 pt-4">
-                        <Button variant="outline" size="sm" className="flex-1">
-                          <Mail className="w-4 h-4" />
-                          Kontak
-                        </Button>
-                        <Button variant="default" size="sm" className="flex-1">
-                          Request Mentoring
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-
-              <div className="text-center mt-12">
-                <Card className="border-0 shadow-card bg-muted/50 max-w-2xl mx-auto">
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-center gap-2">
-                      <Heart className="w-6 h-6 text-primary" />
-                      Ingin Menjadi Mentor?
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      Bergabunglah sebagai mentor dan bantu adik-adik tingkat dalam 
-                      mengembangkan karir dan potensi mereka
-                    </p>
-                    <Button variant="accent" size="lg">
-                      Daftar Jadi Mentor
-                      <Users className="w-5 h-5" />
-                    </Button>
-                  </CardContent>
-                </Card>
               </div>
             </TabsContent>
 

@@ -216,24 +216,6 @@ const Programs = () => {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <Card key={stat.label} className="text-center hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 shadow-card group cursor-pointer">
-                <CardContent className="pt-6">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 group-hover:shadow-glow">
-                    <stat.icon className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-1 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground group-hover:text-primary transition-colors duration-300">{stat.label}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Programs by Category */}
       <section className="py-20 bg-muted/50">

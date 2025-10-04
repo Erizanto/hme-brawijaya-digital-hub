@@ -139,7 +139,7 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up [animation-delay:0.6s]">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-slide-up [animation-delay:0.6s]">
               <Link to="/about">
                 <Button variant="accent" size="hero" className="text-lg hover:scale-105 transition-all duration-300">
                   Jelajahi HME

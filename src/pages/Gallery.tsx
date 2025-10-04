@@ -13,8 +13,7 @@ const Gallery = () => {
     { id: 'all', label: 'Semua', icon: Image },
     { id: 'events', label: 'Event & Kegiatan', icon: Calendar },
     { id: 'workshops', label: 'Workshop & Pelatihan', icon: Users },
-    { id: 'competitions', label: 'Kompetisi', icon: Award },
-    { id: 'behind-scenes', label: 'Behind The Scenes', icon: Camera }
+    { id: 'achievements', label: 'Prestasi', icon: Award }
   ];
 
   const galleries = [
@@ -80,21 +79,21 @@ const Gallery = () => {
     },
     {
       id: 6,
-      title: "Behind The Scenes - Oprec 2024",
-      description: "Dokumentasi proses open recruitment HME",
-      category: "behind-scenes",
+      title: "Juara 1 Robotika Nasional 2024",
+      description: "Prestasi gemilang tim robotika HME di kompetisi nasional",
+      category: "achievements",
       date: "Juli 2024",
       images: 30,
       videos: 6,
       thumbnail: "/placeholder.svg",
-      featured: false,
-      organizer: "EME Medikraf"
+      featured: true,
+      organizer: "Workshop HME"
     },
     {
       id: 7,
-      title: "Innovation Challenge Finals",
-      description: "Final kompetisi inovasi teknologi elektro",
-      category: "competitions",
+      title: "Best Innovation Award",
+      description: "Penghargaan inovasi terbaik di kompetisi teknologi",
+      category: "achievements",
       date: "Juni 2024",
       images: 28,
       videos: 7,
@@ -249,26 +248,6 @@ const Gallery = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ingin Berkontribusi?</h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Bergabunglah dengan tim dokumentasi HME atau kirimkan foto/video kegiatan Anda
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="lg" className="hover:scale-110 transition-all duration-300 hover:shadow-glow">
-              <Camera className="w-5 h-5 mr-2" />
-              Gabung Tim Medikraf
-            </Button>
-            <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-110 transition-all duration-300">
-              <Download className="w-5 h-5 mr-2" />
-              Upload Konten
-            </Button>
           </div>
         </div>
       </section>

@@ -57,11 +57,10 @@ const Navigation = () => {
       name: 'Tentang HME', 
       href: '/about',
       dropdown: [
-        { name: 'Visi & Misi', href: '/about', hash: 'vision' },
-        { name: 'Struktur Organisasi', href: '/about', hash: 'structure' },
-        { name: 'Sejarah', href: '/about', hash: 'history' },
+        { name: 'Visi & Misi', href: '/about#vision' },
+        { name: 'Struktur Organisasi', href: '/about#structure' },
+        { name: 'Sejarah', href: '/about#history' },
         { name: 'Galeri & Dokumentasi', href: '/gallery' },
-        { name: 'Berita & Acara', href: '/news' },
         { name: 'Kontak', href: '/contact' },
       ]
     },
@@ -69,10 +68,10 @@ const Navigation = () => {
       name: 'Alat Kelengkapan', 
       href: '/subunit',
       dropdown: [
-        { name: 'Workshop HME FT-UB', href: '/workshop' },
-        { name: 'RisTIE', href: '/ristie' },
-        { name: 'EME - Eksekutif Mahasiswa', href: '/eme' },
         { name: 'BPME - Badan Perwakilan', href: '/bpme' },
+        { name: 'EME - Eksekutif Mahasiswa', href: '/eme' },
+        { name: 'RisTIE', href: '/ristie' },
+        { name: 'Workshop HME FT-UB', href: '/workshop' },
       ]
     },
     { name: 'TESLA Recap', href: '/tesla' },
@@ -82,9 +81,10 @@ const Navigation = () => {
       dropdown: [
         { name: 'Portal Alumni', href: '/alumni' },
         { name: 'Program Kerja & Kegiatan', href: '/programs' },
+        { name: 'Partnership', href: '/partnership' },
+        { name: 'Berita & Acara', href: '/news' },
       ]
     },
-    { name: 'Partnership', href: '/partnership' },
   ];
 
   const isActive = (href: string, exact = false) => {
@@ -139,13 +139,6 @@ const Navigation = () => {
                         <Link
                           to={subItem.href}
                           className="w-full cursor-pointer"
-                          onClick={(e) => {
-                            if (subItem.hash) {
-                              setTimeout(() => {
-                                document.getElementById(subItem.hash)?.scrollIntoView({ behavior: 'smooth' });
-                              }, 100);
-                            }
-                          }}
                         >
                           {subItem.name}
                         </Link>
@@ -271,14 +264,7 @@ const Navigation = () => {
                                 <Link
                                   to={subItem.href}
                                   className="w-full cursor-pointer"
-                                  onClick={(e) => {
-                                    setIsOpen(false);
-                                    if (subItem.hash) {
-                                      setTimeout(() => {
-                                        document.getElementById(subItem.hash)?.scrollIntoView({ behavior: 'smooth' });
-                                      }, 100);
-                                    }
-                                  }}
+                                  onClick={() => setIsOpen(false)}
                                 >
                                   {subItem.name}
                                 </Link>

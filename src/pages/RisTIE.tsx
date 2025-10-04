@@ -62,58 +62,40 @@ const RisTIE = () => {
       title: "Jaringan",
       icon: Network,
       description: "Desain dan implementasi arsitektur jaringan yang efisien"
-    },
-    {
-      title: "Hardware Integration",
-      icon: Globe,
-      description: "Integrasi perangkat keras dengan software untuk IoT dan embedded systems"
     }
   ];
 
   const publications = [
     {
-      title: "Implementation of IoT-based Smart Irrigation System",
+      title: "Modul Training: IoT Development Fundamentals",
+      authors: "RisTIE Education Team",
+      journal: "RisTIE Publications",
+      year: "2024",
+      type: "Modul Training"
+    },
+    {
+      title: "Dokumentasi Project: Smart Campus Energy Monitoring",
       authors: "RisTIE Research Team",
-      journal: "International Journal of Smart Agriculture",
+      journal: "Project Documentation",
       year: "2024",
-      type: "Journal Article"
+      type: "Dokumentasi Project"
     },
     {
-      title: "Machine Learning Approach for Energy Consumption Prediction",
-      authors: "Ahmad Rizki, Sari Indah, Budi Santoso",
-      journal: "IEEE Conference on Smart Grid Technology",
+      title: "Modul Training: Machine Learning for Beginners",
+      authors: "Ahmad Rizki, Sari Indah",
+      journal: "RisTIE Publications",
       year: "2024",
-      type: "Conference Paper"
+      type: "Modul Training"
     },
     {
-      title: "Development of Real-time Monitoring System using React and Node.js",
+      title: "Dokumentasi Project: Web Development Best Practices",
       authors: "RisTIE Development Team",
-      journal: "Journal of Information Technology",
+      journal: "Project Documentation",
       year: "2023",
-      type: "Journal Article"
+      type: "Dokumentasi Project"
     }
   ];
 
-  const upcomingEvents = [
-    {
-      title: "AI & Machine Learning Workshop",
-      date: "15 Maret 2025",
-      type: "Workshop",
-      description: "Introduction to AI and practical machine learning implementation"
-    },
-    {
-      title: "RisTIE Tech Talk: Future of IoT",
-      date: "22 Maret 2025", 
-      type: "Seminar",
-      description: "Discussion about IoT trends and opportunities in industry"
-    },
-    {
-      title: "Mobile App Development Bootcamp",
-      date: "5 April 2025",
-      type: "Bootcamp",
-      description: "Intensive training on React Native and Flutter development"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -185,11 +167,10 @@ const RisTIE = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="departments" className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 mb-12 h-auto p-1">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12 h-auto p-1">
               <TabsTrigger value="departments" className="text-center py-3">Departemen</TabsTrigger>
               <TabsTrigger value="focus" className="text-center py-3">Bidang Riset</TabsTrigger>
               <TabsTrigger value="publications" className="text-center py-3">Publikasi</TabsTrigger>
-              <TabsTrigger value="events" className="text-center py-3">Kegiatan</TabsTrigger>
             </TabsList>
 
             <TabsContent value="departments" className="space-y-8">
@@ -225,11 +206,6 @@ const RisTIE = () => {
                           ))}
                         </div>
                       </div>
-
-                      <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 hover:scale-105">
-                        Lihat Program
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-                      </Button>
                     </CardContent>
                   </Card>
                 ))}
@@ -313,39 +289,6 @@ const RisTIE = () => {
               </div>
             </TabsContent>
 
-            <TabsContent value="events" className="space-y-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-primary mb-4">Kegiatan & Acara</h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Workshop, seminar, dan training yang diselenggarakan RisTIE
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {upcomingEvents.map((event, index) => (
-                  <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300">
-                    <CardHeader>
-                      <div className="flex justify-between items-start mb-2">
-                        <CardTitle className="text-lg">{event.title}</CardTitle>
-                        <Badge variant="secondary" className="bg-accent/10 text-accent">
-                          {event.type}
-                        </Badge>
-                      </div>
-                      <CardDescription className="font-medium text-primary">
-                        {event.date}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">{event.description}</p>
-                      <Button variant="default" size="sm" className="w-full">
-                        Daftar Sekarang
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
           </Tabs>
         </div>
       </section>

@@ -137,7 +137,8 @@ const Footer = () => {
               ))}
             </ul>
 
-            <div className="space-y-2">
+            <div className="space-y-3">
+              <h5 className="font-semibold text-base mb-3">Kontak & Alamat</h5>
               <div className="flex items-start space-x-2 text-sm opacity-90">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <span>Gedung Elektro, Fakultas Teknik<br />Universitas Brawijaya, Malang</span>
@@ -149,6 +150,17 @@ const Footer = () => {
               <div className="flex items-center space-x-2 text-sm opacity-90">
                 <Mail className="h-4 w-4" />
                 <span>hme@ft.ub.ac.id</span>
+              </div>
+              <div className="flex items-center space-x-2 text-sm opacity-90 pt-2">
+                <ExternalLink className="h-4 w-4" />
+                <a 
+                  href="https://linkedin.com/company/hme-ftub" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  LinkedIn: HME FT-UB
+                </a>
               </div>
             </div>
           </div>

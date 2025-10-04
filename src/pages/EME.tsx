@@ -174,26 +174,6 @@ const EME = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Bergabung dengan EME</h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Wujudkan potensi terbaikmu dan berkontribusi untuk kemajuan mahasiswa elektro FT-UB
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="lg" className="hover:scale-110 transition-all duration-300 hover:shadow-glow">
-              <Users className="w-5 h-5 mr-2" />
-              Info Recruitment
-            </Button>
-            <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-110 transition-all duration-300">
-              <Target className="w-5 h-5 mr-2" />
-              Lihat Program Kerja
-            </Button>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );

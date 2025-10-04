@@ -211,11 +211,10 @@ const Tesla = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 mb-12 h-auto p-1">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12 h-auto p-1">
               <TabsTrigger value="current" className="text-center py-3">Edisi Terbaru</TabsTrigger>
               <TabsTrigger value="archives" className="text-center py-3">Arsip Edisi</TabsTrigger>
               <TabsTrigger value="highlights" className="text-center py-3">Konten Unggulan</TabsTrigger>
-              <TabsTrigger value="team" className="text-center py-3">Tim TESLA</TabsTrigger>
             </TabsList>
 
             <TabsContent value="current" className="space-y-8">
@@ -372,62 +371,6 @@ const Tesla = () => {
               </div>
             </TabsContent>
 
-            <TabsContent value="team" className="space-y-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-primary mb-4">Tim TESLA</h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Tim yang bertanggung jawab dalam pembuatan dan penerbitan TESLA Recap
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {teamTesla.map((member, index) => (
-                  <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300">
-                    <CardHeader>
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                          <Users className="w-6 h-6 text-primary-foreground" />
-                        </div>
-                        <div>
-                          <Badge variant="secondary" className="mb-2 bg-accent/10 text-accent">{member.role}</Badge>
-                          <CardTitle className="text-xl">{member.name}</CardTitle>
-                          <CardDescription className="font-medium">{member.position}</CardDescription>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">
-                        {member.department}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-
-              <div className="mt-12">
-                <Card className="border-0 shadow-card bg-muted/50">
-                  <CardHeader>
-                    <CardTitle className="text-center">Jadwal Publikasi</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      {upcomingSchedule.map((schedule, index) => (
-                        <div key={index} className="flex justify-between items-center p-4 bg-background rounded-lg">
-                          <div>
-                            <h4 className="font-semibold text-primary">{schedule.edition}</h4>
-                            <p className="text-sm text-muted-foreground">{schedule.period}</p>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-sm text-muted-foreground">Launch: {schedule.launch}</div>
-                            <div className="text-sm text-muted-foreground">Deadline: {schedule.deadline}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
           </Tabs>
         </div>
       </section>
