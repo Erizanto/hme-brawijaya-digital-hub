@@ -297,7 +297,7 @@ const RisTIE = () => {
       <section className="py-20 bg-gradient-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Bergabung dengan RisTIE
+            Pelajari Lebih Lanjut tentang RisTIE
           </h2>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Kembangkan skill teknologi informasi Anda bersama RisTIE. Terlibat dalam riset, 
@@ -306,8 +306,8 @@ const RisTIE = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="accent" size="hero">
-              Daftar RisTIE
-              <ArrowRight className="w-5 h-5" />
+              Website RisTIE
+              <ExternalLink className="w-5 h-5" />
             </Button>
             <Button variant="outline-accent" size="hero" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
               Lihat Proyek
