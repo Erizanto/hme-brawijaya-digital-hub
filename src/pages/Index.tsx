@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import IPKCalculator from '@/components/IPKCalculator';
 import { 
   Users, 
   BookOpen, 
@@ -16,8 +15,7 @@ import {
   Zap,
   Target,
   Lightbulb,
-  Eye,
-  Calculator
+  Eye
 } from 'lucide-react';
 import heroImage from '@/assets/hero-hme.jpg';
 import labScene from '@/assets/lab-scene.jpg';
@@ -103,7 +101,7 @@ const Index = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
+          <div className="absolute inset-0 bg-primary/85"></div>
         </div>
         
         {/* Content */}
@@ -200,7 +198,7 @@ const Index = () => {
       </section>
 
       {/* Highlights Carousel */}
-      <section className="py-20 bg-gradient-primary text-primary-foreground">
+      <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Highlights & Berita Terbaru</h2>
@@ -259,7 +257,7 @@ const Index = () => {
       </section>
 
       {/* Portal Alumni Highlight */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-accent">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-3xl p-8 border border-primary-foreground/20">
@@ -309,21 +307,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* IPK Calculator Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4">
-              <Calculator className="w-8 h-8 text-primary-foreground" />
-            </div>
-            <h2 className="text-4xl font-bold text-primary mb-4">Kalkulator IPK</h2>
-            <p className="text-xl text-muted-foreground">Hitung dan pantau prestasi akademik Anda dengan mudah</p>
-          </div>
-          
-          <IPKCalculator />
         </div>
       </section>
 

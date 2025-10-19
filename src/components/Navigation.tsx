@@ -85,6 +85,7 @@ const Navigation = () => {
         { name: 'Berita & Acara', href: '/news' },
       ]
     },
+    { name: 'Tools', href: '/tools' },
   ];
 
   const isActive = (href: string, exact = false) => {
