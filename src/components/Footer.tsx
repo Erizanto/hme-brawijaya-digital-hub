@@ -54,9 +54,9 @@ const Footer = () => {
             {/* Social Media */}
             <div className="flex space-x-3">
               <Button 
-                variant="outline" 
+                variant="outline-accent" 
                 size="icon" 
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 asChild
               >
                 <a href="https://instagram.com/hme_ftub" target="_blank" rel="noopener noreferrer">
@@ -64,9 +64,9 @@ const Footer = () => {
                 </a>
               </Button>
               <Button 
-                variant="outline" 
+                variant="outline-accent" 
                 size="icon" 
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 asChild
               >
                 <a href="https://youtube.com/@hme_ftub" target="_blank" rel="noopener noreferrer">
@@ -74,9 +74,9 @@ const Footer = () => {
                 </a>
               </Button>
               <Button 
-                variant="outline" 
+                variant="outline-accent" 
                 size="icon" 
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 asChild
               >
                 <a href="mailto:hme@ft.ub.ac.id">

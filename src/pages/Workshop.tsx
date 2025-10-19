@@ -282,10 +282,6 @@ const Workshop = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="accent" size="hero">
-              Daftar Workshop HME
-              <ArrowRight className="w-5 h-5" />
-            </Button>
             <Button variant="outline-accent" size="hero" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary">
               Lihat Portofolio
               <ExternalLink className="w-5 h-5" />

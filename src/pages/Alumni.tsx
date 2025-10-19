@@ -157,7 +157,7 @@ const Alumni = () => {
               magang, mentoring, dan kolaborasi untuk pengembangan karir dan inovasi
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
+              <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow">
                 Daftar Alumni
                 <Users className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
               </Button>
