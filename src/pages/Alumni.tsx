@@ -161,10 +161,6 @@ const Alumni = () => {
                 Daftar Alumni
                 <Users className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
               </Button>
-              <Button variant="outline-accent" size="hero" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:scale-110 transition-all duration-300">
-                Cari Mentor
-                <Heart className="w-5 h-5 hover:bounce transition-transform duration-300" />
-              </Button>
             </div>
           </div>
         </div>
@@ -193,7 +189,7 @@ const Alumni = () => {
                 <Heart className="w-8 h-8" />
                 50+
               </div>
-              <div className="text-muted-foreground">Mentor Aktif</div>
+              <div className="text-muted-foreground">Project Aktif</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-primary mb-2 flex items-center justify-center gap-2">

@@ -158,7 +158,7 @@ const Tesla = () => {
               dan perkembangan HME FT-UB selama periode kepengurusan Gardaraksa Anakarta 2024/2025.
             </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow animate-pulse">
+                <Button variant="accent" size="hero" className="hover:scale-110 transition-all duration-300 hover:shadow-glow">
                   Baca Edisi Terbaru
                   <Eye className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
                 </Button>
