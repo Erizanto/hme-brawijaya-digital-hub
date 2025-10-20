@@ -59,7 +59,7 @@ const Footer = () => {
                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                 asChild
               >
-                <a href="https://instagram.com/hme_ftub" target="_blank" rel="noopener noreferrer">
+                <a href="https://instagram.com/hmeftub" target="_blank" rel="noopener noreferrer">
                   <Instagram className="h-5 w-5" />
                 </a>
               </Button>

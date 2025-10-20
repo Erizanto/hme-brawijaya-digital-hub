@@ -57,9 +57,7 @@ const Navigation = () => {
       name: 'Tentang HME', 
       href: '/about',
       dropdown: [
-        { name: 'Visi & Misi', href: '/about#vision' },
-        { name: 'Struktur Organisasi', href: '/about#structure' },
-        { name: 'Sejarah', href: '/about#history' },
+        { name: 'Profile', href: '/about#vision' },
         { name: 'Galeri & Dokumentasi', href: '/gallery' },
         { name: 'Kontak', href: '/contact' },
       ]
