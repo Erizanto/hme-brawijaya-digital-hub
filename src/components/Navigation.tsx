@@ -68,10 +68,10 @@ const Navigation = () => {
       name: 'Alat Kelengkapan', 
       href: '/subunit',
       dropdown: [
-        { name: 'BPME - Badan Perwakilan', href: '/bpme' },
-        { name: 'EME - Eksekutif Mahasiswa', href: '/eme' },
+        { name: 'BPME', href: '/bpme' },
+        { name: 'EME', href: '/eme' },
         { name: 'RisTIE', href: '/ristie' },
-        { name: 'Workshop HME FT-UB', href: '/workshop' },
+        { name: 'Workshop', href: '/workshop' },
       ]
     },
     { name: 'TESLA Recap', href: '/tesla' },
