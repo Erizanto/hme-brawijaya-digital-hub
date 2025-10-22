@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Target, Users, Award, BookOpen, Lightbulb, Heart } from 'lucide-react';
+import { Target, Users, Award, BookOpen, Lightbulb, Heart, ChevronLeft, ChevronRight, Trophy } from 'lucide-react';
 import labScene from '@/assets/lab-scene.jpg';
 
 const About = () => {
+  const [currentPeriod, setCurrentPeriod] = useState(0);
+  const [showFullStructure, setShowFullStructure] = useState(false);
+
   const visionMission = [
     {
       title: "Visi",
@@ -44,13 +49,126 @@ const About = () => {
     }
   ];
 
-  const orgStructure = [
-    { position: "Ketua HME", name: "Iqbal", period: "2025-2026" },
-    { position: "Wakil Ketua HME", name: "Evan", period: "2025-2026" },
-    { position: "Sekretaris HME", name: "Aurel", period: "2025-2026" },
-    { position: "Bendahara", name: "Devina", period: "2025-2026" },
-    { position: "Ketua Umum Workshop", name: "Mulki", period: "2025-2026" },
-    { position: "Ketua Umum RisTIE", name: "Aza", period: "2025-2026" }
+  const achievements = [
+    {
+      title: "Juara 1 Kompetisi Robotika Nasional 2024",
+      description: "Tim robotika HME berhasil meraih juara pertama",
+      year: "2024"
+    },
+    {
+      title: "Best Paper Award ICEET 2024",
+      description: "Publikasi ilmiah terbaik di konferensi internasional",
+      year: "2024"
+    },
+    {
+      title: "Penghargaan Organisasi Mahasiswa Terbaik",
+      description: "Dari Fakultas Teknik Universitas Brawijaya",
+      year: "2023"
+    },
+    {
+      title: "Juara 2 Smart Grid Competition",
+      description: "Kompetisi desain sistem smart grid tingkat nasional",
+      year: "2023"
+    }
+  ];
+
+  const periodPhotos = [
+    {
+      period: "2024-2025",
+      cabinet: "Gardaraksa Anakarta",
+      image: labScene,
+      description: "Periode kepengurusan saat ini dengan fokus pada inovasi dan kolaborasi"
+    },
+    {
+      period: "2023-2024",
+      cabinet: "Kabinet Sebelumnya",
+      image: labScene,
+      description: "Periode kepengurusan dengan pencapaian luar biasa di berbagai bidang"
+    },
+    {
+      period: "2022-2023",
+      cabinet: "Kabinet Terdahulu",
+      image: labScene,
+      description: "Periode kepengurusan dengan fokus pada pengembangan SDM"
+    }
+  ];
+
+  const batches = [
+    { year: 2002, name: "Angkatan AMPERE" },
+    { year: 2003, name: "Angkatan VOLTA" },
+    { year: 2004, name: "Angkatan OHM" },
+    { year: 2005, name: "Angkatan WATT" },
+    { year: 2006, name: "Angkatan TESLA" },
+    { year: 2007, name: "Angkatan FARADAY" },
+    { year: 2008, name: "Angkatan HERTZ" },
+    { year: 2009, name: "Angkatan MAXWELL" },
+    { year: 2010, name: "Angkatan COULOMB" },
+    { year: 2011, name: "Angkatan JOULE" },
+    { year: 2012, name: "Angkatan GAUSS" },
+    { year: 2013, name: "Angkatan EDISON" },
+    { year: 2014, name: "Angkatan NEWTON" },
+    { year: 2015, name: "Angkatan PASCAL" },
+    { year: 2016, name: "Angkatan PLANCK" },
+    { year: 2017, name: "Angkatan KELVIN" },
+    { year: 2018, name: "Angkatan HENRY" },
+    { year: 2019, name: "Angkatan SIEMENS" },
+    { year: 2020, name: "Angkatan WEBER" },
+    { year: 2021, name: "Angkatan BECQUEREL" },
+    { year: 2022, name: "Angkatan CARNOT" },
+    { year: 2023, name: "Angkatan DOPPLER" },
+    { year: 2024, name: "Angkatan LORENTZ" }
+  ];
+
+  // Main organizational structure
+  const mainStructure = {
+    ketua: { position: "Ketua HME", name: "Iqbal", period: "2025-2026" },
+    core: [
+      { position: "Wakil Ketua HME", name: "Evan", period: "2025-2026" },
+      { position: "Sekretaris HME", name: "Aurel", period: "2025-2026" },
+      { position: "Bendahara", name: "Devina", period: "2025-2026" }
+    ],
+    lso: [
+      { position: "Ketua Umum Workshop", name: "Mulki", period: "2025-2026" },
+      { position: "Ketua Umum RisTIE", name: "Aza", period: "2025-2026" }
+    ]
+  };
+
+  // Full detailed structure (alat kelengkapan)
+  const fullStructure = [
+    {
+      unit: "Badan Pengurus Mahasiswa Elektro (BPME)",
+      members: [
+        { position: "Ketua BPME", name: "Iqbal" },
+        { position: "Wakil Ketua", name: "Evan" },
+        { position: "Sekretaris", name: "Aurel" },
+        { position: "Bendahara", name: "Devina" }
+      ]
+    },
+    {
+      unit: "Elemen Mahasiswa Elektro (EME)",
+      members: [
+        { position: "Koordinator EME Internal", name: "Fadhil" },
+        { position: "Koordinator EME Eksternal", name: "Rania" },
+        { position: "Koordinator EME PSDM", name: "Zahra" },
+        { position: "Koordinator EME Medikraf", name: "Dimas" }
+      ]
+    },
+    {
+      unit: "Workshop HME",
+      members: [
+        { position: "Ketua Umum Workshop", name: "Mulki" },
+        { position: "Sekretaris Workshop", name: "Nadia" },
+        { position: "Bendahara Workshop", name: "Raffi" }
+      ]
+    },
+    {
+      unit: "RisTIE (Riset Teknologi Informasi Elektro)",
+      members: [
+        { position: "Ketua Umum RisTIE", name: "Aza" },
+        { position: "Sekretaris RisTIE", name: "Alya" },
+        { position: "Bendahara RisTIE", name: "Bagas" }
+      ]
+    }
   ];
 
   return (
@@ -68,6 +186,102 @@ const About = () => {
               Organisasi Mahasiswa Teknik Elektro Terdepan
             </p>
             <div className="w-24 h-1 bg-accent mx-auto"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4">
+              <Trophy className="w-8 h-8 text-primary-foreground" />
+            </div>
+            <h2 className="text-4xl font-bold text-primary mb-4">Pencapaian HME</h2>
+            <p className="text-xl text-muted-foreground">Prestasi dan penghargaan yang telah diraih</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {achievements.map((achievement, index) => (
+              <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2 group">
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300">
+                        {achievement.title}
+                      </CardTitle>
+                    </div>
+                    <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Award className="w-5 h-5 text-accent" />
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-2">{achievement.description}</p>
+                  <p className="text-sm text-accent font-semibold">{achievement.year}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Period Slideshow */}
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-4">Perjalanan Kepengurusan</h2>
+            <p className="text-xl text-muted-foreground">Dokumentasi periode kepengurusan HME</p>
+          </div>
+
+          <div className="max-w-4xl mx-auto relative">
+            <div className="overflow-hidden rounded-2xl shadow-elegant">
+              <div 
+                className="h-96 bg-cover bg-center bg-no-repeat relative"
+                style={{ backgroundImage: `url(${periodPhotos[currentPeriod].image})` }}
+              >
+                <div className="absolute inset-0 bg-black/60 flex items-end">
+                  <div className="p-8 text-white w-full">
+                    <h3 className="text-3xl font-bold mb-2">{periodPhotos[currentPeriod].cabinet}</h3>
+                    <p className="text-xl text-accent mb-2">Periode {periodPhotos[currentPeriod].period}</p>
+                    <p className="text-lg opacity-90">{periodPhotos[currentPeriod].description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Slideshow Controls */}
+            <div className="flex justify-between items-center mt-6">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setCurrentPeriod((prev) => (prev === 0 ? periodPhotos.length - 1 : prev - 1))}
+                className="hover:scale-110 transition-all duration-300"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </Button>
+              
+              <div className="flex space-x-2">
+                {periodPhotos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPeriod(index)}
+                    className={`w-3 h-3 rounded-full transition-all ${
+                      index === currentPeriod ? 'bg-primary scale-125' : 'bg-muted-foreground/50 hover:bg-muted-foreground/80'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setCurrentPeriod((prev) => (prev === periodPhotos.length - 1 ? 0 : prev + 1))}
+                className="hover:scale-110 transition-all duration-300"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -164,10 +378,37 @@ const About = () => {
                   </p>
                 </div>
                 
-                <Button variant="gradient" size="lg" className="mt-6 hover:scale-110 transition-all duration-300 hover:shadow-glow">
-                  Pelajari Lebih Lanjut
-                  <BookOpen className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="gradient" size="lg" className="mt-6 hover:scale-110 transition-all duration-300 hover:shadow-glow">
+                      Lihat Nama Angkatan
+                      <BookOpen className="w-5 h-5 hover:rotate-12 transition-transform duration-300" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl">Nama Angkatan HME</DialogTitle>
+                      <DialogDescription>
+                        Daftar nama angkatan mahasiswa Teknik Elektro dari tahun 2002 hingga sekarang
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                      {batches.map((batch) => (
+                        <Card key={batch.year} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300">
+                          <CardContent className="p-4">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <p className="font-bold text-primary text-lg">{batch.year}</p>
+                                <p className="text-muted-foreground">{batch.name}</p>
+                              </div>
+                              <Award className="w-6 h-6 text-accent" />
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>
@@ -182,27 +423,92 @@ const About = () => {
             <p className="text-xl opacity-90">Kabinet Sangkara Anantara Periode 2025-2026</p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {orgStructure.map((member, index) => (
-                <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300">
-                  <CardHeader className="text-center">
-                    <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Users className="w-8 h-8 text-accent-foreground" />
-                    </div>
-                    <CardTitle className="text-lg">{member.position}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="font-semibold text-accent mb-2">{member.name}</p>
-                    <p className="text-sm opacity-80">{member.period}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div className="max-w-5xl mx-auto">
+            {/* Main Structure - Simplified View */}
+            {!showFullStructure && (
+              <div className="space-y-6">
+                {/* Ketua - Top Position */}
+                <div className="flex justify-center">
+                  <Card className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 w-full max-w-sm">
+                    <CardHeader className="text-center">
+                      <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Users className="w-10 h-10 text-accent-foreground" />
+                      </div>
+                      <CardTitle className="text-xl">{mainStructure.ketua.position}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="font-bold text-accent text-lg mb-2">{mainStructure.ketua.name}</p>
+                      <p className="text-sm opacity-80">{mainStructure.ketua.period}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Core Team - Wakhim, Sekretaris, Bendahara */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {mainStructure.core.map((member, index) => (
+                    <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300">
+                      <CardHeader className="text-center">
+                        <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Users className="w-8 h-8 text-accent-foreground" />
+                        </div>
+                        <CardTitle className="text-lg">{member.position}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="text-center">
+                        <p className="font-semibold text-accent mb-2">{member.name}</p>
+                        <p className="text-sm opacity-80">{member.period}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* LSO Heads */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                  {mainStructure.lso.map((member, index) => (
+                    <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300">
+                      <CardHeader className="text-center">
+                        <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Users className="w-8 h-8 text-accent-foreground" />
+                        </div>
+                        <CardTitle className="text-lg">{member.position}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="text-center">
+                        <p className="font-semibold text-accent mb-2">{member.name}</p>
+                        <p className="text-sm opacity-80">{member.period}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Full Structure - Detailed View (Alat Kelengkapan) */}
+            {showFullStructure && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {fullStructure.map((unit, index) => (
+                  <Card key={index} className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground">
+                    <CardHeader>
+                      <CardTitle className="text-xl text-center text-accent">{unit.unit}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      {unit.members.map((member, idx) => (
+                        <div key={idx} className="bg-primary-foreground/5 p-3 rounded-lg">
+                          <p className="font-semibold text-sm">{member.position}</p>
+                          <p className="text-accent">{member.name}</p>
+                        </div>
+                      ))}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
             
             <div className="text-center mt-12">
-              <Button variant="accent" size="lg">
-                Lihat Struktur Lengkap
+              <Button 
+                variant="accent" 
+                size="lg"
+                onClick={() => setShowFullStructure(!showFullStructure)}
+              >
+                {showFullStructure ? 'Tampilkan Struktur Sederhana' : 'Lihat Struktur Lengkap (Alat Kelengkapan)'}
                 <Users className="w-5 h-5" />
               </Button>
             </div>

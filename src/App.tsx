@@ -12,11 +12,12 @@ import RisTIE from "./pages/RisTIE";
 import Partnership from "./pages/Partnership";
 import EME from "./pages/EME";
 import BPME from "./pages/BPME";
-import Programs from "./pages/Programs";
 import Gallery from "./pages/Gallery";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
 import Tools from "./pages/Tools";
+import Merch from "./pages/Merch";
+import Publications from "./pages/Publications";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,11 +38,12 @@ const App = () => (
           <Route path="/partnership" element={<Partnership />} />
           <Route path="/eme" element={<EME />} />
           <Route path="/bpme" element={<BPME />} />
-          <Route path="/programs" element={<Programs />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/tools" element={<Tools />} />
+          <Route path="/merch" element={<Merch />} />
+          <Route path="/publications" element={<Publications />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

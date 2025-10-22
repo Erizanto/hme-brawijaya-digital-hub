@@ -304,6 +304,30 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Company Profile Video */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">Company Profile</h2>
+            <p className="text-xl text-muted-foreground">
+              Mengenal lebih dekat Himpunan Mahasiswa Elektro FT-UB
+            </p>
+          </div>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-elegant">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Company Profile HME FT-UB"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

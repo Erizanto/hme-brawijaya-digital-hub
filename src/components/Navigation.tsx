@@ -72,18 +72,32 @@ const Navigation = () => {
         { name: 'Workshop', href: '/workshop' },
       ]
     },
-    { name: 'TESLA Recap', href: '/tesla' },
+    { 
+      name: 'Berita & Acara', 
+      href: '/news',
+      dropdown: [
+        { name: 'TESLA Recap', href: '/tesla' },
+        { name: 'Berita Terbaru', href: '/news#berita' },
+        { name: 'Acara Mendatang', href: '/news#acara' },
+      ]
+    },
     { 
       name: 'Portal & Program', 
       href: '/portal',
       dropdown: [
-        { name: 'Portal Alumni', href: '/alumni' },
-        { name: 'Program Kerja & Kegiatan', href: '/programs' },
+        { name: 'Portal Alumni & Info', href: '/alumni' },
+        { name: 'Publikasi', href: '/publications' },
         { name: 'Partnership', href: '/partnership' },
-        { name: 'Berita & Acara', href: '/news' },
       ]
     },
-    { name: 'Tools', href: '/tools' },
+    { 
+      name: 'More', 
+      href: '/more',
+      dropdown: [
+        { name: 'Merchandise', href: '/merch' },
+        { name: 'Tools', href: '/tools' },
+      ]
+    },
   ];
 
   const isActive = (href: string, exact = false) => {
