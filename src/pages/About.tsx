@@ -94,29 +94,29 @@ const About = () => {
   ];
 
   const batches = [
-    { year: 2002, name: "Angkatan AMPERE" },
-    { year: 2003, name: "Angkatan VOLTA" },
-    { year: 2004, name: "Angkatan OHM" },
-    { year: 2005, name: "Angkatan WATT" },
-    { year: 2006, name: "Angkatan TESLA" },
-    { year: 2007, name: "Angkatan FARADAY" },
-    { year: 2008, name: "Angkatan HERTZ" },
-    { year: 2009, name: "Angkatan MAXWELL" },
-    { year: 2010, name: "Angkatan COULOMB" },
-    { year: 2011, name: "Angkatan JOULE" },
-    { year: 2012, name: "Angkatan GAUSS" },
-    { year: 2013, name: "Angkatan EDISON" },
-    { year: 2014, name: "Angkatan NEWTON" },
-    { year: 2015, name: "Angkatan PASCAL" },
-    { year: 2016, name: "Angkatan PLANCK" },
-    { year: 2017, name: "Angkatan KELVIN" },
-    { year: 2018, name: "Angkatan HENRY" },
-    { year: 2019, name: "Angkatan SIEMENS" },
-    { year: 2020, name: "Angkatan WEBER" },
-    { year: 2021, name: "Angkatan BECQUEREL" },
-    { year: 2022, name: "Angkatan CARNOT" },
-    { year: 2023, name: "Angkatan DOPPLER" },
-    { year: 2024, name: "Angkatan LORENTZ" }
+    { year: 2002, name: "Loren ipsum" },
+    { year: 2003, name: "Loren ipsum" },
+    { year: 2004, name: "Loren ipsum" },
+    { year: 2005, name: "Loren ipsum" },
+    { year: 2006, name: "Loren ipsum" },
+    { year: 2007, name: "Loren ipsum" },
+    { year: 2008, name: "Loren ipsum" },
+    { year: 2009, name: "Loren ipsum" },
+    { year: 2010, name: "Loren ipsum" },
+    { year: 2011, name: "Loren ipsum" },
+    { year: 2012, name: "Loren ipsum" },
+    { year: 2013, name: "Loren ipsum" },
+    { year: 2014, name: "Loren ipsum" },
+    { year: 2015, name: "Loren ipsum" },
+    { year: 2016, name: "Loren ipsum" },
+    { year: 2017, name: "Loren ipsum" },
+    { year: 2018, name: "Loren ipsum" },
+    { year: 2019, name: "Loren ipsum" },
+    { year: 2020, name: "RECTIFO" },
+    { year: 2021, name: "ARDUINO" },
+    { year: 2022, name: "NORTON" },
+    { year: 2023, name: "PIEZO" },
+    { year: 2024, name: "THEVENIN" }
   ];
 
   // Main organizational structure
@@ -124,8 +124,8 @@ const About = () => {
     ketua: { position: "Ketua HME", name: "Iqbal", period: "2025-2026" },
     core: [
       { position: "Wakil Ketua HME", name: "Evan", period: "2025-2026" },
-      { position: "Sekretaris HME", name: "Aurel", period: "2025-2026" },
-      { position: "Bendahara", name: "Devina", period: "2025-2026" }
+      { position: "Sekretaris Umum HME", name: "Aurel", period: "2025-2026" },
+      { position: "Bendahara Umum HME", name: "Devina", period: "2025-2026" }
     ],
     lso: [
       { position: "Ketua Umum Workshop", name: "Mulki", period: "2025-2026" },
@@ -136,37 +136,51 @@ const About = () => {
   // Full detailed structure (alat kelengkapan)
   const fullStructure = [
     {
-      unit: "Badan Pengurus Mahasiswa Elektro (BPME)",
+      unit: "Badan Perwakilan Mahasiswa Elektro (BPME)",
       members: [
-        { position: "Ketua BPME", name: "Iqbal" },
-        { position: "Wakil Ketua", name: "Evan" },
-        { position: "Sekretaris", name: "Aurel" },
-        { position: "Bendahara", name: "Devina" }
+        { position: "Koordinator BPME", name: "Alif" },
+        { position: "Legislatif", name: "" },
+        { position: "Yudikatif", name: "" }
       ]
     },
     {
-      unit: "Elemen Mahasiswa Elektro (EME)",
+      unit: "Eksekutif Mahasiswa Elektro (EME)",
       members: [
-        { position: "Koordinator EME Internal", name: "Fadhil" },
-        { position: "Koordinator EME Eksternal", name: "Rania" },
-        { position: "Koordinator EME PSDM", name: "Zahra" },
-        { position: "Koordinator EME Medikraf", name: "Dimas" }
+        { position: "Kepala Departemen Internal", name: "Dimas" },
+        { position: "Kepala Departemen Eksternal", name: "Reimas" },
+        { position: "Kepala Departemen PSDM", name: "Rafly" },
+        { position: "Kepala Departemen Medikraf", name: "Nabil" },
+        { position: "Kepala Departemen Aksi", name: "Fadhlan" },
+        { position: "Kepala Departemen KWU", name: "Adit" },
+
       ]
     },
     {
       unit: "Workshop HME",
       members: [
         { position: "Ketua Umum Workshop", name: "Mulki" },
-        { position: "Sekretaris Workshop", name: "Nadia" },
-        { position: "Bendahara Workshop", name: "Raffi" }
+        { position: "Sekretaris Umum Workshop", name: "Panji" },
+        { position: "Bendahara Umum Workshop", name: "Lady" },
+        { position: "Project Management", name: "Akmal Hadi" },
+        { position: "Media Komunikasi & Informasi", name: "Adim" },
+        { position: "Media Komunikasi & Informasi", name: "Nadia" },
+        { position: "Business Management", name: "Farid" },
+        { position: "Kepala Departemen EF", name: "Adit" },
+        { position: "Kepala Departemen Internet of Things", name: "Andri" },
+        { position: "Kepala Departemen Otomasi", name: "Haykal" },
+        { position: "Kepala Departemen Line Tracer Community", name: "Yasir" },
+        { position: "Kepala Departemen Aeronautika", name: "Daoni" },
+        { position: "Kepala Departemen Robotika", name: "Almas" }
       ]
     },
     {
       unit: "RisTIE (Riset Teknologi Informasi Elektro)",
       members: [
         { position: "Ketua Umum RisTIE", name: "Aza" },
-        { position: "Sekretaris RisTIE", name: "Alya" },
-        { position: "Bendahara RisTIE", name: "Bagas" }
+        { position: "Sekretaris Umum RisTIE", name: "Rizal" },
+        { position: "Kepala Departemen Education", name: "Sakho Noob" },
+        { position: "Kepala Departemen Research & Development", name: "Adib" },
+        { position: "Kepala Departemen Media Digital", name: "Wawan" }
       ]
     }
   ];

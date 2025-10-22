@@ -29,7 +29,7 @@ const Tesla = () => {
   const [activeTab, setActiveTab] = useState('current');
 
   const bulletinInfo = {
-    title: "TESLA Recap",
+    title: "TESLA",
     fullTitle: "HME FT-UB Bulletin - Gardaraksa Anakarta 2024/2025",
     period: "Gardaraksa Anakarta 2024/2025",
     description: "Merangkum seluruh kegiatan, pencapaian, dan perkembangan HME FT-UB"
@@ -148,13 +148,13 @@ const Tesla = () => {
               <Zap className="w-10 h-10 text-accent-foreground" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">
-              TESLA Recap
+              TESLA
             </h1>
             <h2 className="text-2xl md:text-3xl mb-6 opacity-90">
               Gardaraksa Anakarta 2024/2025
             </h2>
             <p className="text-lg opacity-80 mb-8 max-w-2xl mx-auto">
-              TESLA Recap Gardaraksa Anakarta hadir untuk merangkum seluruh kegiatan, pencapaian, 
+              TESLA Gardaraksa Anakarta hadir untuk merangkum seluruh kegiatan, pencapaian, 
               dan perkembangan HME FT-UB selama periode kepengurusan Gardaraksa Anakarta 2024/2025.
             </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -233,7 +233,7 @@ const Tesla = () => {
                     <div>
                       <img 
                         src={heroHme} 
-                        alt="TESLA Recap Cover" 
+                        alt="TESLA Cover" 
                         className="w-full h-64 object-cover rounded-lg shadow-card"
                       />
                     </div>
@@ -343,7 +343,7 @@ const Tesla = () => {
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-primary mb-4">Konten Unggulan</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Jenis konten yang selalu hadir di setiap edisi TESLA Recap
+                  Jenis konten yang selalu hadir di setiap edisi TESLA
                 </p>
               </div>
 
