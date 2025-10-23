@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { 
@@ -14,7 +13,6 @@ import {
   Users, 
   MapPin, 
   Calendar,
-  Building,
   Mail,
   Phone,
   ExternalLink,
@@ -28,7 +26,7 @@ import {
 import heroHme from '@/assets/hero-hme.jpg';
 
 const Alumni = () => {
-  const [activeTab, setActiveTab] = useState('opportunities');
+  const [activeSection, setActiveSection] = useState('portal');
 
   const jobOpportunities = [
     {
@@ -95,7 +93,6 @@ const Alumni = () => {
       description: "Kesempatan magang di kilang minyak..."
     }
   ];
-
 
   const collaborationProjects = [
     {
@@ -202,15 +199,49 @@ const Alumni = () => {
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-20 bg-background">
+      {/* Section Selector */}
+      <section className="py-12 bg-background border-b">
         <div className="container mx-auto px-4">
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-7xl mx-auto">
-            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12 h-auto p-1">
-              <TabsTrigger value="opportunities" className="text-center py-3">Lowongan Kerja</TabsTrigger>
-              <TabsTrigger value="internships" className="text-center py-3">Info Magang</TabsTrigger>
-              <TabsTrigger value="collaboration" className="text-center py-3">Kolaborasi Project</TabsTrigger>
-            </TabsList>
+          <div className="flex justify-center gap-4 max-w-2xl mx-auto">
+            <Button
+              variant={activeSection === 'portal' ? 'default' : 'outline'}
+              size="lg"
+              onClick={() => setActiveSection('portal')}
+              className="flex-1 hover:scale-105 transition-all duration-300"
+            >
+              <Users className="w-5 h-5 mr-2" />
+              Portal Alumni
+            </Button>
+            <Button
+              variant={activeSection === 'info' ? 'default' : 'outline'}
+              size="lg"
+              onClick={() => setActiveSection('info')}
+              className="flex-1 hover:scale-105 transition-all duration-300"
+            >
+              <GraduationCap className="w-5 h-5 mr-2" />
+              Informasi Umum
+            </Button>
+          </div>
+          <p className="text-center text-muted-foreground mt-4">
+            {activeSection === 'portal' 
+              ? 'Khusus untuk alumni HME yang sudah terdaftar' 
+              : 'Informasi terbuka untuk mahasiswa dan alumni'}
+          </p>
+        </div>
+      </section>
+
+      {/* Portal Alumni Section */}
+      {activeSection === 'portal' && (
+        <>
+          {/* Main Content */}
+          <section className="py-20 bg-background">
+            <div className="container mx-auto px-4">
+              <Tabs defaultValue="opportunities" className="max-w-7xl mx-auto">
+                <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12 h-auto p-1">
+                  <TabsTrigger value="opportunities" className="text-center py-3">Lowongan Kerja</TabsTrigger>
+                  <TabsTrigger value="internships" className="text-center py-3">Info Magang</TabsTrigger>
+                  <TabsTrigger value="collaboration" className="text-center py-3">Kolaborasi Project</TabsTrigger>
+                </TabsList>
 
             <TabsContent value="opportunities" className="space-y-8">
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -460,6 +491,152 @@ const Alumni = () => {
           </Tabs>
         </div>
       </section>
+    </>
+  )}
+
+  {/* Informasi Umum Section */}
+  {activeSection === 'info' && (
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-primary mb-4">Informasi Umum Alumni</h2>
+              <p className="text-xl text-muted-foreground">
+                Informasi dan kesempatan yang terbuka untuk semua
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Cara Bergabung */}
+              <Card className="border-0 shadow-elegant">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
+                    <Users className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <CardTitle className="text-2xl">Cara Mendaftar Alumni</CardTitle>
+                  <CardDescription className="text-base">
+                    Langkah-langkah untuk bergabung dengan Portal Alumni HME
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-3">
+                    <div className="flex gap-3">
+                      <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-accent font-bold">1</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1">Isi Formulir Pendaftaran</h4>
+                        <p className="text-sm text-muted-foreground">Lengkapi data diri dan informasi kontak Anda</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-accent font-bold">2</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1">Verifikasi Data</h4>
+                        <p className="text-sm text-muted-foreground">Tim HME akan memverifikasi data alumni Anda</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-accent font-bold">3</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1">Akses Portal</h4>
+                        <p className="text-sm text-muted-foreground">Setelah terverifikasi, Anda dapat mengakses semua fitur portal</p>
+                      </div>
+                    </div>
+                  </div>
+                  <Button variant="default" size="lg" className="w-full mt-6">
+                    <Mail className="w-5 h-5 mr-2" />
+                    Daftar Sekarang
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Benefit Bergabung */}
+              <Card className="border-0 shadow-elegant">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
+                    <Star className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <CardTitle className="text-2xl">Benefit Alumni</CardTitle>
+                  <CardDescription className="text-base">
+                    Keuntungan yang Anda dapatkan sebagai alumni terdaftar
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <Briefcase className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Akses Lowongan Kerja Eksklusif</h4>
+                        <p className="text-sm text-muted-foreground">Dapatkan info lowongan dari perusahaan partner</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Users className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Networking Alumni</h4>
+                        <p className="text-sm text-muted-foreground">Terhubung dengan 500+ alumni di berbagai industri</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Heart className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Mentoring & Kolaborasi</h4>
+                        <p className="text-sm text-muted-foreground">Berbagi pengalaman dan berkolaborasi dalam project</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Award className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Event & Workshop Gratis</h4>
+                        <p className="text-sm text-muted-foreground">Akses ke semua event HME tanpa biaya</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Information */}
+            <Card className="border-0 shadow-elegant mt-8">
+              <CardHeader className="text-center">
+                <CardTitle className="text-2xl">Butuh Bantuan?</CardTitle>
+                <CardDescription className="text-base">
+                  Hubungi kami untuk informasi lebih lanjut
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Mail className="w-6 h-6 text-accent" />
+                    </div>
+                    <h4 className="font-semibold mb-1">Email</h4>
+                    <p className="text-sm text-muted-foreground">alumni@hme-ftub.com</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Phone className="w-6 h-6 text-accent" />
+                    </div>
+                    <h4 className="font-semibold mb-1">WhatsApp</h4>
+                    <p className="text-sm text-muted-foreground">+62 812-3456-7890</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Users className="w-6 h-6 text-accent" />
+                    </div>
+                    <h4 className="font-semibold mb-1">Instagram</h4>
+                    <p className="text-sm text-muted-foreground">@hme_ftub</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

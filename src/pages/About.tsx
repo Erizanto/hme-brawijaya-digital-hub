@@ -51,24 +51,28 @@ const About = () => {
 
   const achievements = [
     {
-      title: "Juara 1 Kompetisi Robotika Nasional 2024",
-      description: "Tim robotika HME berhasil meraih juara pertama",
-      year: "2024"
+      value: "35+",
+      label: "Tahun Berdiri",
+      description: "Sejak tahun 1985",
+      icon: Trophy
     },
     {
-      title: "Best Paper Award ICEET 2024",
-      description: "Publikasi ilmiah terbaik di konferensi internasional",
-      year: "2024"
+      value: "500+",
+      label: "Alumni Aktif",
+      description: "Tersebar di berbagai industri",
+      icon: Users
     },
     {
-      title: "Penghargaan Organisasi Mahasiswa Terbaik",
-      description: "Dari Fakultas Teknik Universitas Brawijaya",
-      year: "2023"
+      value: "50+",
+      label: "Prestasi Diraih",
+      description: "Tingkat nasional & internasional",
+      icon: Award
     },
     {
-      title: "Juara 2 Smart Grid Competition",
-      description: "Kompetisi desain sistem smart grid tingkat nasional",
-      year: "2023"
+      value: "200+",
+      label: "Anggota Aktif",
+      description: "Mahasiswa Teknik Elektro",
+      icon: Target
     }
   ];
 
@@ -208,33 +212,29 @@ const About = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4">
-              <Trophy className="w-8 h-8 text-primary-foreground" />
-            </div>
             <h2 className="text-4xl font-bold text-primary mb-4">Pencapaian HME</h2>
-            <p className="text-xl text-muted-foreground">Prestasi dan penghargaan yang telah diraih</p>
+            <p className="text-xl text-muted-foreground">Prestasi dan data HME FT-UB</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-2 group">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300">
-                        {achievement.title}
-                      </CardTitle>
-                    </div>
-                    <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Award className="w-5 h-5 text-accent" />
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-2">{achievement.description}</p>
-                  <p className="text-sm text-accent font-semibold">{achievement.year}</p>
-                </CardContent>
-              </Card>
+              <div 
+                key={index} 
+                className="text-center p-8 bg-gradient-primary rounded-2xl shadow-elegant hover:shadow-glow transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 group cursor-pointer"
+              >
+                <div className="w-20 h-20 bg-primary-foreground/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                  <achievement.icon className="w-10 h-10 text-primary-foreground" />
+                </div>
+                <div className="text-5xl font-bold text-primary-foreground mb-3 group-hover:scale-110 transition-transform duration-300">
+                  {achievement.value}
+                </div>
+                <div className="text-xl font-semibold text-primary-foreground mb-2">
+                  {achievement.label}
+                </div>
+                <div className="text-sm text-primary-foreground/80">
+                  {achievement.description}
+                </div>
+              </div>
             ))}
           </div>
         </div>

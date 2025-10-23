@@ -76,7 +76,7 @@ const Navigation = () => {
       name: 'Berita & Acara', 
       href: '/news',
       dropdown: [
-        { name: 'TESLA Recap', href: '/tesla' },
+        { name: 'TESLA Recap', href: '/news#tesla' },
         { name: 'Berita Terbaru', href: '/news#berita' },
         { name: 'Acara Mendatang', href: '/news#acara' },
       ]

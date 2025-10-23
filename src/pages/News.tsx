@@ -1,11 +1,44 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useState } from 'react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Calendar, Clock, Users, MapPin, ArrowRight, Megaphone, Star, Award, Lightbulb, BookOpen } from 'lucide-react';
+import { Calendar, Clock, Users, MapPin, ArrowRight, Megaphone, Star, Award, Lightbulb, BookOpen, Zap, Download, Eye, TrendingUp, Activity, Target } from 'lucide-react';
+import heroHme from '@/assets/hero-hme.jpg';
 
 const News = () => {
+  const [activeTab, setActiveTab] = useState('berita');
+
+  // TESLA Data
+  const teslaEditions = [
+    {
+      edition: "Edisi Terbaru",
+      period: "Semester Ganjil 2024/2025",
+      published: "January 2025",
+      highlights: 15,
+      status: "Latest",
+      features: ["Recap Kegiatan", "Prestasi Mahasiswa", "Program Kerja", "Spotlight Alumni"]
+    },
+    {
+      edition: "Edisi Spesial", 
+      period: "Dies Natalis HME",
+      published: "October 2024",
+      highlights: 12,
+      status: "Special",
+      features: ["Sejarah HME", "Alumni Stories", "Milestone Achievements"]
+    },
+    {
+      edition: "Edisi Perdana",
+      period: "Awal Kepengurusan 2024/2025", 
+      published: "August 2024",
+      highlights: 10,
+      status: "Archive",
+      features: ["Visi Misi", "Program Unggulan", "Perkenalan Pengurus"]
+    }
+  ];
+
   const news = [
     {
       id: 1,
@@ -152,136 +185,144 @@ const News = () => {
               <Megaphone className="w-10 h-10 text-accent-foreground" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-              Berita & Acara
+              Berita, Acara & TESLA
             </h1>
             <p className="text-xl md:text-2xl opacity-90 mb-8 animate-slide-up">
-              Update terbaru kegiatan, prestasi, dan agenda HME FT-UB
+              Update terbaru kegiatan, prestasi, agenda, dan buletin HME FT-UB
             </p>
             <div className="w-24 h-1 bg-accent mx-auto"></div>
           </div>
         </div>
       </section>
 
-      {/* Featured News */}
+      {/* Main Content with Tabs */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Berita Utama</h2>
-            <p className="text-xl text-muted-foreground">Sorotan berita dan pencapaian terbaru</p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            {featuredNews.slice(0, 2).map((article) => {
-              const categoryConfig = getCategoryConfig(article.category);
-              return (
-                <Card key={article.id} className="overflow-hidden hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 shadow-card group cursor-pointer">
-                  <div className="relative">
-                    <img 
-                      src={article.image} 
-                      alt={article.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <Badge variant={categoryConfig.variant} className="flex items-center">
-                        <categoryConfig.icon className="w-3 h-3 mr-1" />
-                        {categoryConfig.label}
-                      </Badge>
-                    </div>
-                  </div>
-                  
-                  <CardHeader>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300 line-clamp-2">
-                      {article.title}
-                    </CardTitle>
-                    <div className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      {new Date(article.date).toLocaleDateString('id-ID', { 
-                        day: 'numeric', 
-                        month: 'long', 
-                        year: 'numeric' 
-                      })}
-                      <span className="mx-2">•</span>
-                      <span>{article.author}</span>
-                    </div>
-                  </CardHeader>
-                  
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors duration-300 line-clamp-3">
-                      {article.summary}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-wrap gap-1">
-                        {article.tags.slice(0, 2).map((tag) => (
-                          <Badge key={tag} variant="outline" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Button variant="ghost" size="sm" className="hover:scale-110 transition-all duration-300">
-                        Baca Selengkapnya
-                        <ArrowRight className="w-4 h-4 ml-1" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-6xl mx-auto">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12 h-auto p-1">
+              <TabsTrigger value="berita" className="text-center py-3">Berita & Prestasi</TabsTrigger>
+              <TabsTrigger value="acara" className="text-center py-3">Acara Mendatang</TabsTrigger>
+              <TabsTrigger value="tesla" className="text-center py-3">TESLA</TabsTrigger>
+            </TabsList>
 
-      {/* Regular News and Upcoming Events */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Regular News */}
-            <div>
-              <h3 className="text-2xl font-bold text-primary mb-8">Berita Terbaru</h3>
-              <div className="space-y-6">
-                {regularNews.map((article) => {
+            {/* Tab Berita */}
+            <TabsContent value="berita" className="space-y-16">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-primary mb-4">Berita Utama</h2>
+                <p className="text-xl text-muted-foreground">Sorotan berita dan pencapaian terbaru</p>
+              </div>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                {featuredNews.slice(0, 2).map((article) => {
                   const categoryConfig = getCategoryConfig(article.category);
                   return (
-                    <Card key={article.id} className="hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-0 shadow-card group cursor-pointer">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between mb-2">
-                          <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300 flex-1 line-clamp-2">
-                            {article.title}
-                          </CardTitle>
-                          <Badge variant={categoryConfig.variant} className="ml-2">
+                    <Card key={article.id} className="overflow-hidden hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 border-0 shadow-card group cursor-pointer">
+                      <div className="relative">
+                        <img 
+                          src={article.image} 
+                          alt={article.title}
+                          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <Badge variant={categoryConfig.variant} className="flex items-center">
                             <categoryConfig.icon className="w-3 h-3 mr-1" />
                             {categoryConfig.label}
                           </Badge>
                         </div>
+                      </div>
+                      
+                      <CardHeader>
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                          {article.title}
+                        </CardTitle>
                         <div className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                           <Calendar className="w-4 h-4 mr-2" />
                           {new Date(article.date).toLocaleDateString('id-ID', { 
                             day: 'numeric', 
-                            month: 'long' 
+                            month: 'long', 
+                            year: 'numeric' 
                           })}
                           <span className="mx-2">•</span>
                           <span>{article.author}</span>
                         </div>
                       </CardHeader>
-                      <CardContent className="pt-0">
-                        <p className="text-muted-foreground text-sm mb-3 group-hover:text-foreground transition-colors duration-300 line-clamp-2">
+                      
+                      <CardContent>
+                        <p className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors duration-300 line-clamp-3">
                           {article.summary}
                         </p>
-                        <Button variant="ghost" size="sm" className="p-0 h-auto hover:scale-110 transition-all duration-300">
-                          Baca Selengkapnya
-                          <ArrowRight className="w-4 h-4 ml-1" />
-                        </Button>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="flex flex-wrap gap-1">
+                            {article.tags.slice(0, 2).map((tag) => (
+                              <Badge key={tag} variant="outline" className="text-xs">
+                                {tag}
+                              </Badge>
+                            ))}
+                          </div>
+                          <Button variant="ghost" size="sm" className="hover:scale-110 transition-all duration-300">
+                            Baca Selengkapnya
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   );
                 })}
               </div>
-            </div>
 
-            {/* Upcoming Events */}
-            <div>
-              <h3 className="text-2xl font-bold text-primary mb-8">Acara Mendatang</h3>
-              <div className="space-y-6">
+              <div className="mt-12">
+                <h3 className="text-2xl font-bold text-primary mb-8">Berita Terbaru</h3>
+                <div className="space-y-6">
+                  {regularNews.map((article) => {
+                    const categoryConfig = getCategoryConfig(article.category);
+                    return (
+                      <Card key={article.id} className="hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-0 shadow-card group cursor-pointer">
+                        <CardHeader className="pb-3">
+                          <div className="flex items-start justify-between mb-2">
+                            <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300 flex-1 line-clamp-2">
+                              {article.title}
+                            </CardTitle>
+                            <Badge variant={categoryConfig.variant} className="ml-2">
+                              <categoryConfig.icon className="w-3 h-3 mr-1" />
+                              {categoryConfig.label}
+                            </Badge>
+                          </div>
+                          <div className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                            <Calendar className="w-4 h-4 mr-2" />
+                            {new Date(article.date).toLocaleDateString('id-ID', { 
+                              day: 'numeric', 
+                              month: 'long' 
+                            })}
+                            <span className="mx-2">•</span>
+                            <span>{article.author}</span>
+                          </div>
+                        </CardHeader>
+                        <CardContent className="pt-0">
+                          <p className="text-muted-foreground text-sm mb-3 group-hover:text-foreground transition-colors duration-300 line-clamp-2">
+                            {article.summary}
+                          </p>
+                          <Button variant="ghost" size="sm" className="p-0 h-auto hover:scale-110 transition-all duration-300">
+                            Baca Selengkapnya
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </div>
+            </TabsContent>
+
+            {/* Tab Acara */}
+            <TabsContent value="acara" className="space-y-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-primary mb-4">Acara Mendatang</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Daftar kegiatan dan event yang akan diselenggarakan oleh HME FT-UB
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {upcomingEvents.map((event, index) => {
                   const statusConfig = getEventStatus(event.status);
                   return (
@@ -322,8 +363,115 @@ const News = () => {
                   );
                 })}
               </div>
-            </div>
-          </div>
+            </TabsContent>
+
+            {/* Tab TESLA */}
+            <TabsContent value="tesla" className="space-y-12">
+              {/* TESLA Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-8 bg-muted/50 rounded-2xl">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2 flex items-center justify-center gap-2">
+                    <Award className="w-8 h-8" />
+                    50+
+                  </div>
+                  <div className="text-muted-foreground">Kegiatan Terdokumentasi</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2 flex items-center justify-center gap-2">
+                    <Star className="w-8 h-8" />
+                    25+
+                  </div>
+                  <div className="text-muted-foreground">Prestasi Mahasiswa</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2 flex items-center justify-center gap-2">
+                    <TrendingUp className="w-8 h-8" />
+                    100+
+                  </div>
+                  <div className="text-muted-foreground">Alumni Terlibat</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary mb-2 flex items-center justify-center gap-2">
+                    <Activity className="w-8 h-8" />
+                    3
+                  </div>
+                  <div className="text-muted-foreground">Edisi Per Tahun</div>
+                </div>
+              </div>
+
+              {/* TESLA Editions */}
+              <div>
+                <div className="text-center mb-12">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4">
+                    <Zap className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-primary mb-4">Buletin TESLA</h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    Dokumentasi lengkap kegiatan dan pencapaian HME FT-UB dalam buletin tahunan
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {teslaEditions.map((edition, index) => (
+                    <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 group cursor-pointer">
+                      <CardHeader>
+                        <div className="flex justify-between items-start mb-2">
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">{edition.edition}</CardTitle>
+                          <Badge 
+                            variant={edition.status === 'Latest' ? 'default' : edition.status === 'Special' ? 'secondary' : 'outline'}
+                            className={`transition-all duration-300 group-hover:scale-110 ${
+                              edition.status === 'Latest' 
+                                ? 'bg-accent text-accent-foreground' 
+                                : edition.status === 'Special'
+                                ? 'bg-primary/10 text-primary'
+                                : ''
+                            }`}
+                          >
+                            {edition.status}
+                          </Badge>
+                        </div>
+                        <CardDescription className="text-base">
+                          {edition.period}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Star className="w-4 h-4" />
+                          {edition.highlights} Highlights
+                        </div>
+                        
+                        <div>
+                          <div className="text-sm font-medium mb-2">Konten Utama:</div>
+                          <div className="flex flex-wrap gap-1">
+                            {edition.features.map((feature) => (
+                              <Badge key={feature} variant="outline" className="text-xs">
+                                {feature}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="flex gap-2 pt-4">
+                          <Button variant="default" size="sm" className="flex-1">
+                            <Eye className="w-4 h-4" />
+                            Baca
+                          </Button>
+                          <Button variant="outline" size="sm" className="flex-1">
+                            <Download className="w-4 h-4" />
+                            Download
+                          </Button>
+                        </div>
+                        
+                        <div className="text-xs text-muted-foreground border-t pt-2">
+                          Published: {edition.published}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
