@@ -57,7 +57,8 @@ const Navigation = () => {
       name: 'Tentang HME', 
       href: '/about',
       dropdown: [
-        { name: 'Profile', href: '/about#vision' },
+        { name: 'Profile', href: '/about' },
+        { name: 'Berita & Acara', href: '/news' },
         { name: 'Galeri & Dokumentasi', href: '/gallery' },
         { name: 'Kontak', href: '/contact' },
       ]
@@ -70,15 +71,6 @@ const Navigation = () => {
         { name: 'EME', href: '/eme' },
         { name: 'RisTIE', href: '/ristie' },
         { name: 'Workshop', href: '/workshop' },
-      ]
-    },
-    { 
-      name: 'Berita & Acara', 
-      href: '/news',
-      dropdown: [
-        { name: 'TESLA Recap', href: '/news#tesla' },
-        { name: 'Berita Terbaru', href: '/news#berita' },
-        { name: 'Acara Mendatang', href: '/news#acara' },
       ]
     },
     { 
