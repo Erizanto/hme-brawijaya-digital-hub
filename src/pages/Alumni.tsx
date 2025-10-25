@@ -28,7 +28,57 @@ import heroHme from '@/assets/hero-hme.jpg';
 const Alumni = () => {
   const [activeSection, setActiveSection] = useState('portal');
 
-  const jobOpportunities = [
+  // Portal Alumni - Internal job postings dari alumni HME
+  const portalJobOpportunities = [
+    {
+      id: 1,
+      title: "Junior Power Systems Engineer",
+      company: "PT. Energy Solutions Indo",
+      location: "Jakarta",
+      type: "Full-time",
+      salary: "8-12 juta",
+      posted: "2 hari yang lalu",
+      deadline: "15 Feb 2025",
+      requirements: ["S1 Teknik Elektro", "Fresh Graduate Welcome", "ETAP, PowerWorld"],
+      description: "Lowongan khusus dari Alumni HME. Proses rekrutmen dipermudah untuk mahasiswa Elektro UB.",
+      postedBy: "Alumni Angkatan 2015",
+      isInternal: true,
+      applicants: 12
+    },
+    {
+      id: 2,
+      title: "Embedded Systems Developer",
+      company: "Startup IoT Solutions",
+      location: "Bandung",
+      type: "Full-time",
+      salary: "9-14 juta",
+      posted: "5 hari yang lalu", 
+      deadline: "20 Feb 2025",
+      requirements: ["S1 Teknik Elektro/Informatika", "C/C++, Arduino, ESP32", "Pengalaman project"],
+      description: "Bergabung dengan startup alumni HME. Kesempatan untuk belajar langsung dari senior.",
+      postedBy: "Alumni Angkatan 2018",
+      isInternal: true,
+      applicants: 8
+    },
+    {
+      id: 3,
+      title: "Control Systems Engineer",
+      company: "PT. Automation Tech",
+      location: "Surabaya",
+      type: "Full-time",
+      salary: "10-15 juta",
+      posted: "1 minggu yang lalu",
+      deadline: "25 Feb 2025",
+      requirements: ["S1 Teknik Elektro", "PLC Programming", "SCADA Systems"],
+      description: "Alumni HME mencari junior engineer. Review aplikasi langsung oleh alumni.",
+      postedBy: "Alumni Angkatan 2012",
+      isInternal: true,
+      applicants: 15
+    }
+  ];
+
+  // Informasi Umum - External job opportunities
+  const externalJobOpportunities = [
     {
       id: 1,
       title: "Software Engineer",
@@ -39,7 +89,9 @@ const Alumni = () => {
       posted: "2 hari yang lalu",
       deadline: "15 Feb 2025",
       requirements: ["S1 Teknik Elektro/Informatika", "Pengalaman 1-2 tahun", "JavaScript, React"],
-      description: "Posisi untuk fresh graduate atau junior developer..."
+      description: "Posisi untuk fresh graduate atau junior developer. Proses rekrutmen standar.",
+      applyUrl: "https://careers.telkom.co.id",
+      source: "LinkedIn"
     },
     {
       id: 2,
@@ -51,7 +103,9 @@ const Alumni = () => {
       posted: "5 hari yang lalu", 
       deadline: "20 Feb 2025",
       requirements: ["S1 Teknik Elektro", "Fresh Graduate Welcome", "SCADA, AutoCAD"],
-      description: "Kesempatan bergabung dengan BUMN terbesar..."
+      description: "Kesempatan bergabung dengan BUMN terbesar. Apply melalui website resmi PLN.",
+      applyUrl: "https://rekrutmen.pln.co.id",
+      source: "Website PLN"
     },
     {
       id: 3,
@@ -63,7 +117,9 @@ const Alumni = () => {
       posted: "1 minggu yang lalu",
       deadline: "25 Feb 2025",
       requirements: ["S1 Teknik Elektro", "PCB Design", "Altium Designer"],
-      description: "Posisi untuk merancang sistem elektronik..."
+      description: "Posisi untuk merancang sistem elektronik. Proses seleksi melalui website resmi.",
+      applyUrl: "https://careers.schneider-electric.com",
+      source: "JobStreet"
     }
   ];
 
@@ -202,33 +258,187 @@ const Alumni = () => {
       {/* Section Selector */}
       <section className="py-12 bg-background border-b">
         <div className="container mx-auto px-4">
-          <div className="flex justify-center gap-4 max-w-2xl mx-auto">
-            <Button
-              variant={activeSection === 'portal' ? 'default' : 'outline'}
-              size="lg"
-              onClick={() => setActiveSection('portal')}
-              className="flex-1 hover:scale-105 transition-all duration-300"
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Portal Alumni
-            </Button>
-            <Button
-              variant={activeSection === 'info' ? 'default' : 'outline'}
-              size="lg"
-              onClick={() => setActiveSection('info')}
-              className="flex-1 hover:scale-105 transition-all duration-300"
-            >
-              <GraduationCap className="w-5 h-5 mr-2" />
-              Informasi Umum
-            </Button>
+          <div className="flex flex-col items-center gap-6 max-w-4xl mx-auto">
+            <div className="flex gap-4 w-full max-w-2xl">
+              <Button
+                variant={activeSection === 'portal' ? 'default' : 'outline'}
+                size="lg"
+                onClick={() => setActiveSection('portal')}
+                className="flex-1 hover:scale-105 transition-all duration-300"
+              >
+                <Star className="w-5 h-5 mr-2" />
+                Portal Alumni
+                <Badge className="ml-2 bg-accent text-accent-foreground">Jalur Orang Dalam</Badge>
+              </Button>
+              <Button
+                variant={activeSection === 'info' ? 'default' : 'outline'}
+                size="lg"
+                onClick={() => setActiveSection('info')}
+                className="flex-1 hover:scale-105 transition-all duration-300"
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Informasi Umum
+              </Button>
+            </div>
+            
+            {/* Description Card */}
+            <Card className="w-full border-2 border-primary/20 shadow-elegant">
+              <CardContent className="pt-6">
+                {activeSection === 'portal' ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Award className="w-5 h-5" />
+                      <h3 className="font-bold text-lg">Portal Alumni - Sistem Internal</h3>
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground ml-7">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Lowongan khusus dari <strong>Alumni HME Elektro UB</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Mahasiswa Elektro bisa <strong>apply langsung di portal ini</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Alumni yang posting akan <strong>review & filter aplikasi sendiri</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Proses rekrutmen <strong>dipermudah untuk mahasiswa HME</strong></span>
+                      </li>
+                    </ul>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-primary">
+                      <ExternalLink className="w-5 h-5" />
+                      <h3 className="font-bold text-lg">Informasi Umum - Lowongan Eksternal</h3>
+                    </div>
+                    <ul className="space-y-2 text-sm text-muted-foreground ml-7">
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Lowongan dari <strong>sumber eksternal</strong> (LinkedIn, JobStreet, dll)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Apply via <strong>website perusahaan langsung</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Proses rekrutmen <strong>standar sesuai perusahaan</strong></span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-primary mt-1">✓</span>
+                        <span>Terbuka untuk <strong>semua mahasiswa dan alumni</strong></span>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
           </div>
-          <p className="text-center text-muted-foreground mt-4">
-            {activeSection === 'portal' 
-              ? 'Khusus untuk alumni HME yang sudah terdaftar' 
-              : 'Informasi terbuka untuk mahasiswa dan alumni'}
-          </p>
         </div>
       </section>
+
+      {/* Informasi Umum Section */}
+      {activeSection === 'info' && (
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              {/* Header */}
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-primary mb-4">Lowongan Eksternal</h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Informasi lowongan kerja dari berbagai sumber eksternal. 
+                  Proses aplikasi melalui website perusahaan masing-masing.
+                </p>
+              </div>
+
+              {/* Search */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <div className="flex-1">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-3 w-5 h-5 text-muted-foreground" />
+                    <Input 
+                      placeholder="Cari berdasarkan posisi, perusahaan, lokasi..." 
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+                <Button variant="outline" size="icon">
+                  <Filter className="w-5 h-5" />
+                </Button>
+              </div>
+
+              {/* Job Cards */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {externalJobOpportunities.map((job) => (
+                  <Card key={job.id} className="border-0 shadow-card hover:shadow-elegant transition-all duration-300 transform hover:-translate-y-1 group cursor-pointer">
+                    <CardHeader>
+                      <div className="flex justify-between items-start mb-2">
+                        <div className="flex-1">
+                          <CardTitle className="text-xl text-primary group-hover:scale-105 transition-transform duration-300">{job.title}</CardTitle>
+                          <CardDescription className="text-base font-medium group-hover:text-foreground transition-colors duration-300">{job.company}</CardDescription>
+                          <div className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                            <ExternalLink className="w-3 h-3" />
+                            Sumber: {job.source}
+                          </div>
+                        </div>
+                        <Badge variant="secondary" className="bg-muted group-hover:scale-110 transition-transform duration-300">
+                          {job.type}
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground flex-wrap">
+                        <div className="flex items-center gap-1">
+                          <MapPin className="w-4 h-4" />
+                          {job.location}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Briefcase className="w-4 h-4" />
+                          {job.salary}
+                        </div>
+                        <div className="text-xs">
+                          {job.posted}
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="text-sm mb-2">{job.description}</p>
+                      </div>
+
+                      <div>
+                        <div className="text-sm font-medium mb-2">Requirements:</div>
+                        <div className="flex flex-wrap gap-1">
+                          {job.requirements.map((req, index) => (
+                            <Badge key={index} variant="outline" className="text-xs">
+                              {req}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex justify-between items-center pt-4 border-t">
+                        <div className="text-xs text-muted-foreground">
+                          Deadline: {job.deadline}
+                        </div>
+                        <Button variant="default" size="sm" asChild>
+                          <a href={job.applyUrl} target="_blank" rel="noopener noreferrer" className="gap-1">
+                            Apply di Website
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Portal Alumni Section */}
       {activeSection === 'portal' && (
@@ -264,15 +474,27 @@ const Alumni = () => {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {jobOpportunities.map((job) => (
-                  <Card key={job.id} className="border-0 shadow-card hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group cursor-pointer">
-                    <CardHeader>
+                {portalJobOpportunities.map((job) => (
+                  <Card key={job.id} className="border-2 border-primary/30 shadow-card hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group cursor-pointer relative overflow-hidden">
+                    {/* Internal Badge Overlay */}
+                    <div className="absolute top-0 right-0 bg-gradient-to-l from-accent/20 to-transparent px-4 py-1">
+                      <Badge variant="secondary" className="bg-accent text-accent-foreground">
+                        <Star className="w-3 h-3 mr-1" />
+                        Jalur Internal
+                      </Badge>
+                    </div>
+                    
+                    <CardHeader className="pt-10">
                       <div className="flex justify-between items-start mb-2">
-                        <div>
+                        <div className="flex-1">
                           <CardTitle className="text-xl text-primary group-hover:scale-105 transition-transform duration-300">{job.title}</CardTitle>
                           <CardDescription className="text-base font-medium group-hover:text-foreground transition-colors duration-300">{job.company}</CardDescription>
+                          <div className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
+                            <Users className="w-3 h-3" />
+                            Posted by {job.postedBy}
+                          </div>
                         </div>
-                        <Badge variant="secondary" className="bg-accent/10 text-accent group-hover:scale-110 transition-transform duration-300">
+                        <Badge variant="secondary" className="bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
                           {job.type}
                         </Badge>
                       </div>
@@ -286,6 +508,10 @@ const Alumni = () => {
                         <div className="flex items-center gap-1">
                           <Briefcase className="w-4 h-4" />
                           {job.salary}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Users className="w-4 h-4" />
+                          {job.applicants} pelamar
                         </div>
                       </div>
 
@@ -304,7 +530,7 @@ const Alumni = () => {
                         </div>
                       </div>
 
-                      <div className="flex justify-between items-center pt-4">
+                      <div className="flex justify-between items-center pt-4 border-t">
                         <div className="text-xs text-muted-foreground">
                           Deadline: {job.deadline}
                         </div>
@@ -312,9 +538,9 @@ const Alumni = () => {
                           <Button variant="outline" size="sm">
                             <Heart className="w-4 h-4" />
                           </Button>
-                          <Button variant="default" size="sm">
-                            Apply Now
-                            <ExternalLink className="w-4 h-4" />
+                          <Button variant="accent" size="sm" className="gap-1">
+                            <Star className="w-4 h-4" />
+                            Apply Internal
                           </Button>
                         </div>
                       </div>
